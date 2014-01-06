@@ -7,16 +7,31 @@
 //
 
 #import "SSBDocument.h"
+#import "SSBMainWindowController.h"
+
+@interface SSBDocument()
+
+@property (nonatomic, strong) SSBMainWindowController *mainWindow;
+
+@end
 
 @implementation SSBDocument
+
+@synthesize mainWindow = _mainWindow;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
+        _mainWindow = [[SSBMainWindowController alloc] initWithWindowNibName:@"SSBMainWindow"];
     }
     return self;
+}
+
+- (void)makeWindowControllers {
+    
+    [self addWindowController:_mainWindow];
 }
 
 - (NSString *)windowNibName
