@@ -14,9 +14,9 @@
 
 @implementation SSBMainWindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
+    self = [super initWithWindowNibName:@"SSBMainWindow"];
     if (self) {
         // Initialization code here.
     }
