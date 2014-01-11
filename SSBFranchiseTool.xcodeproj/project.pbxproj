@@ -22,6 +22,8 @@
 		49C5F38F1872885700E24D00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F38D1872885700E24D00 /* InfoPlist.strings */; };
 		49C5F3911872885700E24D00 /* SSBFranchiseToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */; };
 		49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F3A0187296CD00E24D00 /* ssb.icns */; };
+		49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F1760E1880E50000925BAD /* SSBRulesViewController.m */; };
+		49F176111880E50100925BAD /* SSBRulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F1760F1880E50000925BAD /* SSBRulesView.xib */; };
 		A1821E8A293547B5ADA06A1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079AE16BAE09411887F321F5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,9 @@
 		49C5F38E1872885700E24D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBFranchiseToolTests.m; sourceTree = "<group>"; };
 		49C5F3A0187296CD00E24D00 /* ssb.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ssb.icns; sourceTree = "<group>"; };
+		49F1760D1880E50000925BAD /* SSBRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBRulesViewController.h; sourceTree = "<group>"; };
+		49F1760E1880E50000925BAD /* SSBRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBRulesViewController.m; sourceTree = "<group>"; };
+		49F1760F1880E50000925BAD /* SSBRulesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBRulesView.xib; sourceTree = "<group>"; };
 		8F77560E27DC42839938A651 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +143,9 @@
 				4982352B187A5EBD009E4021 /* SSBMainWindowController.h */,
 				4982352C187A5EBD009E4021 /* SSBMainWindowController.m */,
 				4982352D187A5EBD009E4021 /* SSBMainWindow.xib */,
+				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
+				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
+				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
 				49C5F37E1872885700E24D00 /* Images.xcassets */,
 				49C5F36A1872885600E24D00 /* Supporting Files */,
 			);
@@ -258,6 +266,7 @@
 				4982352F187A5EBD009E4021 /* SSBMainWindow.xib in Resources */,
 				49C5F36E1872885600E24D00 /* InfoPlist.strings in Resources */,
 				49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */,
+				49F176111880E50100925BAD /* SSBRulesView.xib in Resources */,
 				49C5F3741872885700E24D00 /* Credits.rtf in Resources */,
 				49C5F37D1872885700E24D00 /* MainMenu.xib in Resources */,
 			);
@@ -312,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C5F3701872885700E24D00 /* main.m in Sources */,
+				49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */,
 				49C5F3771872885700E24D00 /* SSBDocument.m in Sources */,
 				4982352E187A5EBD009E4021 /* SSBMainWindowController.m in Sources */,
 			);

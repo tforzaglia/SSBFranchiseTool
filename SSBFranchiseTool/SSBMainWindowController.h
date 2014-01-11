@@ -10,4 +10,6 @@
 
 @interface SSBMainWindowController : NSWindowController
 
+@property (weak) IBOutlet NSView* rulesView;
+
 @end
