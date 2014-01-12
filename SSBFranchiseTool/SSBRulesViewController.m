@@ -8,10 +8,10 @@
 
 #import "SSBRulesViewController.h"
 
-#define ROWS 5
-
 @interface SSBRulesViewController()
 
+@property (strong) NSMutableArray *winRowValues;
+@property (strong) NSMutableArray *salaryChangeRowValues;
 
 @end
 

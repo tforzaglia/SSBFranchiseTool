@@ -13,7 +13,5 @@
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTableColumn *winColumn;
 @property (weak) IBOutlet NSTableColumn *salaryChangeColumn;
-@property (strong) NSMutableArray *winRowValues;
-@property (strong) NSMutableArray *salaryChangeRowValues;
 
 @end
