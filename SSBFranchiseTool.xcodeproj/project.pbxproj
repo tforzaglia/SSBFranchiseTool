@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4982352E187A5EBD009E4021 /* SSBMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4982352C187A5EBD009E4021 /* SSBMainWindowController.m */; };
-		4982352F187A5EBD009E4021 /* SSBMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4982352D187A5EBD009E4021 /* SSBMainWindow.xib */; };
 		49C5F3641872885600E24D00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5F3631872885600E24D00 /* Cocoa.framework */; };
 		49C5F36E1872885600E24D00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F36C1872885600E24D00 /* InfoPlist.strings */; };
 		49C5F3701872885700E24D00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F36F1872885700E24D00 /* main.m */; };
@@ -22,6 +20,13 @@
 		49C5F38F1872885700E24D00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F38D1872885700E24D00 /* InfoPlist.strings */; };
 		49C5F3911872885700E24D00 /* SSBFranchiseToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */; };
 		49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F3A0187296CD00E24D00 /* ssb.icns */; };
+		49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CEFD571881B4520015F35D /* SSBMainWindowController.m */; };
+		49CEFD5A1881B4520015F35D /* SSBMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD581881B4520015F35D /* SSBMainWindow.xib */; };
+		49CEFD5E1881B7CD0015F35D /* rulesicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD5D1881B7CD0015F35D /* rulesicon.png */; };
+		49CEFD611881B8990015F35D /* salaryicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD5F1881B8990015F35D /* salaryicon.png */; };
+		49CEFD621881B8990015F35D /* salarycapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD601881B8990015F35D /* salarycapicon.png */; };
+		49CEFD641881BBE00015F35D /* yearicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD631881BBE00015F35D /* yearicon.png */; };
+		49CEFD681881BC570015F35D /* lineupsicon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD671881BC570015F35D /* lineupsicon.jpg */; };
 		49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F1760E1880E50000925BAD /* SSBRulesViewController.m */; };
 		49F176111880E50100925BAD /* SSBRulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F1760F1880E50000925BAD /* SSBRulesView.xib */; };
 		A1821E8A293547B5ADA06A1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079AE16BAE09411887F321F5 /* libPods.a */; };
@@ -39,9 +44,6 @@
 
 /* Begin PBXFileReference section */
 		079AE16BAE09411887F321F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4982352B187A5EBD009E4021 /* SSBMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBMainWindowController.h; sourceTree = "<group>"; };
-		4982352C187A5EBD009E4021 /* SSBMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBMainWindowController.m; sourceTree = "<group>"; };
-		4982352D187A5EBD009E4021 /* SSBMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBMainWindow.xib; sourceTree = "<group>"; };
 		49C5F3601872885600E24D00 /* SSBFranchiseTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBFranchiseTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C5F3631872885600E24D00 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		49C5F3661872885600E24D00 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -63,6 +65,14 @@
 		49C5F38E1872885700E24D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBFranchiseToolTests.m; sourceTree = "<group>"; };
 		49C5F3A0187296CD00E24D00 /* ssb.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ssb.icns; sourceTree = "<group>"; };
+		49CEFD561881B4520015F35D /* SSBMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBMainWindowController.h; sourceTree = "<group>"; };
+		49CEFD571881B4520015F35D /* SSBMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBMainWindowController.m; sourceTree = "<group>"; };
+		49CEFD581881B4520015F35D /* SSBMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBMainWindow.xib; sourceTree = "<group>"; };
+		49CEFD5D1881B7CD0015F35D /* rulesicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rulesicon.png; path = ../../../rulesicon.png; sourceTree = "<group>"; };
+		49CEFD5F1881B8990015F35D /* salaryicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salaryicon.png; path = ../../../salaryicon.png; sourceTree = "<group>"; };
+		49CEFD601881B8990015F35D /* salarycapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salarycapicon.png; path = ../../../salarycapicon.png; sourceTree = "<group>"; };
+		49CEFD631881BBE00015F35D /* yearicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yearicon.png; path = ../../../yearicon.png; sourceTree = "<group>"; };
+		49CEFD671881BC570015F35D /* lineupsicon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lineupsicon.jpg; path = ../../../lineupsicon.jpg; sourceTree = "<group>"; };
 		49F1760D1880E50000925BAD /* SSBRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBRulesViewController.h; sourceTree = "<group>"; };
 		49F1760E1880E50000925BAD /* SSBRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBRulesViewController.m; sourceTree = "<group>"; };
 		49F1760F1880E50000925BAD /* SSBRulesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBRulesView.xib; sourceTree = "<group>"; };
@@ -136,16 +146,21 @@
 		49C5F3691872885600E24D00 /* SSBFranchiseTool */ = {
 			isa = PBXGroup;
 			children = (
+				49CEFD5D1881B7CD0015F35D /* rulesicon.png */,
+				49CEFD671881BC570015F35D /* lineupsicon.jpg */,
+				49CEFD631881BBE00015F35D /* yearicon.png */,
+				49CEFD5F1881B8990015F35D /* salaryicon.png */,
+				49CEFD601881B8990015F35D /* salarycapicon.png */,
 				49C5F3751872885700E24D00 /* SSBDocument.h */,
 				49C5F3761872885700E24D00 /* SSBDocument.m */,
 				49C5F3781872885700E24D00 /* SSBDocument.xib */,
 				49C5F37B1872885700E24D00 /* MainMenu.xib */,
-				4982352B187A5EBD009E4021 /* SSBMainWindowController.h */,
-				4982352C187A5EBD009E4021 /* SSBMainWindowController.m */,
-				4982352D187A5EBD009E4021 /* SSBMainWindow.xib */,
 				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
 				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
 				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
+				49CEFD561881B4520015F35D /* SSBMainWindowController.h */,
+				49CEFD571881B4520015F35D /* SSBMainWindowController.m */,
+				49CEFD581881B4520015F35D /* SSBMainWindow.xib */,
 				49C5F37E1872885700E24D00 /* Images.xcassets */,
 				49C5F36A1872885600E24D00 /* Supporting Files */,
 			);
@@ -263,10 +278,15 @@
 			files = (
 				49C5F37A1872885700E24D00 /* SSBDocument.xib in Resources */,
 				49C5F37F1872885700E24D00 /* Images.xcassets in Resources */,
-				4982352F187A5EBD009E4021 /* SSBMainWindow.xib in Resources */,
+				49CEFD5A1881B4520015F35D /* SSBMainWindow.xib in Resources */,
 				49C5F36E1872885600E24D00 /* InfoPlist.strings in Resources */,
+				49CEFD621881B8990015F35D /* salarycapicon.png in Resources */,
+				49CEFD5E1881B7CD0015F35D /* rulesicon.png in Resources */,
+				49CEFD611881B8990015F35D /* salaryicon.png in Resources */,
 				49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */,
+				49CEFD681881BC570015F35D /* lineupsicon.jpg in Resources */,
 				49F176111880E50100925BAD /* SSBRulesView.xib in Resources */,
+				49CEFD641881BBE00015F35D /* yearicon.png in Resources */,
 				49C5F3741872885700E24D00 /* Credits.rtf in Resources */,
 				49C5F37D1872885700E24D00 /* MainMenu.xib in Resources */,
 			);
@@ -323,7 +343,7 @@
 				49C5F3701872885700E24D00 /* main.m in Sources */,
 				49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */,
 				49C5F3771872885700E24D00 /* SSBDocument.m in Sources */,
-				4982352E187A5EBD009E4021 /* SSBMainWindowController.m in Sources */,
+				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
