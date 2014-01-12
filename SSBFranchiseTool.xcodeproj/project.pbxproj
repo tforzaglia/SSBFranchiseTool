@@ -64,7 +64,7 @@
 		49C5F38C1872885700E24D00 /* SSBFranchiseToolTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSBFranchiseToolTests-Info.plist"; sourceTree = "<group>"; };
 		49C5F38E1872885700E24D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBFranchiseToolTests.m; sourceTree = "<group>"; };
-		49C5F3A0187296CD00E24D00 /* ssb.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ssb.icns; sourceTree = "<group>"; };
+		49C5F3A0187296CD00E24D00 /* ssb.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssb.icns; path = ../ssb.icns; sourceTree = "<group>"; };
 		49CEFD561881B4520015F35D /* SSBMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBMainWindowController.h; sourceTree = "<group>"; };
 		49CEFD571881B4520015F35D /* SSBMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBMainWindowController.m; sourceTree = "<group>"; };
 		49CEFD581881B4520015F35D /* SSBMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBMainWindow.xib; sourceTree = "<group>"; };
@@ -104,7 +104,6 @@
 		49C5F3571872885600E24D00 = {
 			isa = PBXGroup;
 			children = (
-				49C5F3A0187296CD00E24D00 /* ssb.icns */,
 				49C5F3691872885600E24D00 /* SSBFranchiseTool */,
 				49C5F38A1872885700E24D00 /* SSBFranchiseToolTests */,
 				49C5F3621872885600E24D00 /* Frameworks */,
@@ -146,23 +145,12 @@
 		49C5F3691872885600E24D00 /* SSBFranchiseTool */ = {
 			isa = PBXGroup;
 			children = (
-				49CEFD5D1881B7CD0015F35D /* rulesicon.png */,
-				49CEFD671881BC570015F35D /* lineupsicon.jpg */,
-				49CEFD631881BBE00015F35D /* yearicon.png */,
-				49CEFD5F1881B8990015F35D /* salaryicon.png */,
-				49CEFD601881B8990015F35D /* salarycapicon.png */,
-				49C5F3751872885700E24D00 /* SSBDocument.h */,
-				49C5F3761872885700E24D00 /* SSBDocument.m */,
-				49C5F3781872885700E24D00 /* SSBDocument.xib */,
-				49C5F37B1872885700E24D00 /* MainMenu.xib */,
-				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
-				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
-				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
-				49CEFD561881B4520015F35D /* SSBMainWindowController.h */,
-				49CEFD571881B4520015F35D /* SSBMainWindowController.m */,
-				49CEFD581881B4520015F35D /* SSBMainWindow.xib */,
-				49C5F37E1872885700E24D00 /* Images.xcassets */,
+				49CEFD6A188216A70015F35D /* Windows */,
+				49CEFD6B188216B50015F35D /* Views */,
+				49CEFD6C188227830015F35D /* Document */,
+				49CEFD69188216860015F35D /* Images */,
 				49C5F36A1872885600E24D00 /* Supporting Files */,
+				49C5F37E1872885700E24D00 /* Images.xcassets */,
 			);
 			path = SSBFranchiseTool;
 			sourceTree = "<group>";
@@ -170,6 +158,7 @@
 		49C5F36A1872885600E24D00 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49C5F37B1872885700E24D00 /* MainMenu.xib */,
 				49C5F36B1872885600E24D00 /* SSBFranchiseTool-Info.plist */,
 				49C5F36C1872885600E24D00 /* InfoPlist.strings */,
 				49C5F36F1872885700E24D00 /* main.m */,
@@ -195,6 +184,49 @@
 				49C5F38D1872885700E24D00 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49CEFD69188216860015F35D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3A0187296CD00E24D00 /* ssb.icns */,
+				49CEFD5D1881B7CD0015F35D /* rulesicon.png */,
+				49CEFD671881BC570015F35D /* lineupsicon.jpg */,
+				49CEFD631881BBE00015F35D /* yearicon.png */,
+				49CEFD5F1881B8990015F35D /* salaryicon.png */,
+				49CEFD601881B8990015F35D /* salarycapicon.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		49CEFD6A188216A70015F35D /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				49CEFD561881B4520015F35D /* SSBMainWindowController.h */,
+				49CEFD571881B4520015F35D /* SSBMainWindowController.m */,
+				49CEFD581881B4520015F35D /* SSBMainWindow.xib */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		49CEFD6B188216B50015F35D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
+				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
+				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		49CEFD6C188227830015F35D /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3751872885700E24D00 /* SSBDocument.h */,
+				49C5F3761872885700E24D00 /* SSBDocument.m */,
+				49C5F3781872885700E24D00 /* SSBDocument.xib */,
+			);
+			name = Document;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

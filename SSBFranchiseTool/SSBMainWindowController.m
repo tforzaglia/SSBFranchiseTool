@@ -7,6 +7,7 @@
 //
 
 #import "SSBMainWindowController.h"
+#import "SSBRulesViewController.h"
 
 @interface SSBMainWindowController ()
 
@@ -14,19 +15,36 @@
 
 @implementation SSBMainWindowController
 
+@synthesize rulesToolbarItem = _rulesToolbarItem;
+@synthesize salaryToolbarItem = _salaryToolbarItem;
+@synthesize ownerSalaryCapToolbarItem = _ownerSalaryCapToolbarItem;
+@synthesize lineupsToolbarItem = _lineupsToolbarItem;
+@synthesize yearsToolbarItem = _yearsToolbarItem;
+
+@synthesize rulesViewController = _rulesViewController;
+
 - (id)init {
     
     self = [super initWithWindowNibName:@"SSBMainWindow"];
-    if (self) {
-    }
     return self;
 }
 
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
+- (void)windowDidLoad {
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    [super windowDidLoad];
+    [self.window.contentView setAutoresizesSubviews:YES];
+    [_rulesToolbarItem setEnabled:YES];
+    [_salaryToolbarItem setEnabled:YES];
+    [_ownerSalaryCapToolbarItem setEnabled:YES];
+    [_lineupsToolbarItem setEnabled:YES];
+    [_yearsToolbarItem setEnabled:YES];
+    
+    [self showRulesView:self];
+}
+
+- (IBAction)showRulesView:(id)sender {
+    
+    self.window.contentView = _rulesViewController.view;
 }
 
 @end
