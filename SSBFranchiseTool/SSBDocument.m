@@ -34,6 +34,14 @@
     [self addWindowController:_mainWindow];
 }
 
+- (NSString *)displayName {
+
+    if (![self fileURL])
+        return @"Super Smash Bros.";
+    
+    return [super displayName];
+}
+
 - (NSString *)windowNibName
 {
     // Override returning the nib file name of the document
