@@ -8,6 +8,7 @@
 
 #import "SSBMainWindowController.h"
 #import "SSBRulesViewController.h"
+#import "SSBLineupsViewController.h"
 
 @interface SSBMainWindowController ()
 
@@ -22,6 +23,7 @@
 @synthesize yearsToolbarItem = _yearsToolbarItem;
 
 @synthesize rulesViewController = _rulesViewController;
+@synthesize lineupsViewController = _lineupsViewController;
 
 - (id)init {
     
@@ -45,6 +47,11 @@
 - (IBAction)showRulesView:(id)sender {
     
     self.window.contentView = _rulesViewController.view;
+}
+
+- (IBAction)showLineupsView:(id)sender {
+    
+    self.window.contentView = _lineupsViewController.view;
 }
 
 @end

@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SSBMainWindowController">
             <connections>
                 <outlet property="lineupsToolbarItem" destination="EMs-YO-Y5i" id="nUG-fd-81Q"/>
+                <outlet property="lineupsViewController" destination="3lj-pd-Ymf" id="Dux-AR-L4C"/>
                 <outlet property="ownerSalaryCapToolbarItem" destination="Kw2-PS-aMf" id="gOs-LZ-JLv"/>
                 <outlet property="rulesToolbarItem" destination="t89-Eh-zO8" id="dap-aW-NmO"/>
                 <outlet property="rulesViewController" destination="KKG-QR-tbp" id="fXu-Hl-ZIT"/>
@@ -40,7 +41,11 @@
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="F3694F8A-5CC2-443F-8BB5-BDCFE87F54FE" label="Salary" paletteLabel="Salary" tag="-1" image="salaryicon" id="bNw-V1-wEw"/>
                     <toolbarItem implicitItemIdentifier="9569D95C-07C7-47F5-BE51-4D9363080D7C" label="Owner Salary Cap" paletteLabel="Owner Salary Cap" tag="-1" image="salarycapicon" id="Kw2-PS-aMf"/>
-                    <toolbarItem implicitItemIdentifier="C428BC14-98D9-47B1-8E32-364460551DB2" label="Lineups" paletteLabel="Lineups" tag="-1" image="lineupsicon" id="EMs-YO-Y5i"/>
+                    <toolbarItem implicitItemIdentifier="C428BC14-98D9-47B1-8E32-364460551DB2" label="Lineups" paletteLabel="Lineups" tag="-1" image="lineupsicon" id="EMs-YO-Y5i">
+                        <connections>
+                            <action selector="showLineupsView:" target="-2" id="DKI-jt-ePe"/>
+                        </connections>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="F50A4247-B8A1-4EC8-96BB-E31E7CE1BA86" label="Years" paletteLabel="Years" tag="-1" image="yearicon" id="Zfn-jM-ElZ"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
@@ -60,6 +65,7 @@
             </connections>
         </window>
         <viewController id="KKG-QR-tbp" customClass="SSBRulesViewController"/>
+        <viewController id="3lj-pd-Ymf" customClass="SSBLineupsViewController"/>
     </objects>
     <resources>
         <image name="lineupsicon" width="100" height="100"/>

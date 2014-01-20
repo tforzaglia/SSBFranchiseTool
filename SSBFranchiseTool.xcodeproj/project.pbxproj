@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */; };
+		49B8AB84188CCCA000AE0BA2 /* SSBLineupsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */; };
+		49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */; };
+		49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */; };
 		49C5F3641872885600E24D00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5F3631872885600E24D00 /* Cocoa.framework */; };
 		49C5F36E1872885600E24D00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F36C1872885600E24D00 /* InfoPlist.strings */; };
 		49C5F3701872885700E24D00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F36F1872885700E24D00 /* main.m */; };
@@ -44,6 +48,13 @@
 
 /* Begin PBXFileReference section */
 		079AE16BAE09411887F321F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBLineupsViewController.h; sourceTree = "<group>"; };
+		49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBLineupsViewController.m; sourceTree = "<group>"; };
+		49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBLineupsView.xib; sourceTree = "<group>"; };
+		49B8AB85188CD2C100AE0BA2 /* SSBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBConstants.h; sourceTree = "<group>"; };
+		49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBConstants.m; sourceTree = "<group>"; };
+		49B8AB89188CE33D00AE0BA2 /* SSBRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBRestClient.h; sourceTree = "<group>"; };
+		49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBRestClient.m; sourceTree = "<group>"; };
 		49C5F3601872885600E24D00 /* SSBFranchiseTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBFranchiseTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C5F3631872885600E24D00 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		49C5F3661872885600E24D00 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -101,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */ = {
+			isa = PBXGroup;
+			children = (
+				49B8AB89188CE33D00AE0BA2 /* SSBRestClient.h */,
+				49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */,
+			);
+			name = "HTTP Clients";
+			sourceTree = "<group>";
+		};
 		49C5F3571872885600E24D00 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +167,7 @@
 			children = (
 				49CEFD6A188216A70015F35D /* Windows */,
 				49CEFD6B188216B50015F35D /* Views */,
+				49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */,
 				49CEFD6C188227830015F35D /* Document */,
 				49CEFD69188216860015F35D /* Images */,
 				49C5F36A1872885600E24D00 /* Supporting Files */,
@@ -164,6 +185,8 @@
 				49C5F36F1872885700E24D00 /* main.m */,
 				49C5F3711872885700E24D00 /* SSBFranchiseTool-Prefix.pch */,
 				49C5F3721872885700E24D00 /* Credits.rtf */,
+				49B8AB85188CD2C100AE0BA2 /* SSBConstants.h */,
+				49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,6 +238,9 @@
 				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
 				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
 				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
+				49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */,
+				49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */,
+				49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -308,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B8AB84188CCCA000AE0BA2 /* SSBLineupsView.xib in Resources */,
 				49C5F37A1872885700E24D00 /* SSBDocument.xib in Resources */,
 				49C5F37F1872885700E24D00 /* Images.xcassets in Resources */,
 				49CEFD5A1881B4520015F35D /* SSBMainWindow.xib in Resources */,
@@ -375,6 +402,9 @@
 				49C5F3701872885700E24D00 /* main.m in Sources */,
 				49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */,
 				49C5F3771872885700E24D00 /* SSBDocument.m in Sources */,
+				49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */,
+				49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */,
+				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
 				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

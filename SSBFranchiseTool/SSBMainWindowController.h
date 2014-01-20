@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class SSBRulesViewController;
+@class SSBLineupsViewController;
 
 @interface SSBMainWindowController : NSWindowController
 
@@ -20,7 +21,9 @@
 @property (weak) IBOutlet NSToolbarItem *yearsToolbarItem;
 
 @property (weak) IBOutlet SSBRulesViewController *rulesViewController;
+@property (weak) IBOutlet SSBLineupsViewController *lineupsViewController;
 
 - (IBAction)showRulesView:(id)sender;
+- (IBAction)showLineupsView:(id)sender;
 
 @end
