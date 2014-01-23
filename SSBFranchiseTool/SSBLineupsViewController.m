@@ -50,12 +50,27 @@
     
     // get the selected year from the pop up button
     NSString *selectedYear = [[_yearSelectionButton selectedItem] title];
-    NSMutableArray *aLineup = [[NSMutableArray alloc] init];
+    
+    // remove the Year text to get the number to pass to the web service
+    NSString *yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
+    
+    __block NSString *aLineup = [[NSString alloc] init];
+    __block NSString *tLineup = [[NSString alloc] init];
+    __block NSString *pLineup = [[NSString alloc] init];
     
     SSBRestClient *client = [[SSBRestClient alloc] init];
-    [client getLineupsWithBlock:^void(NSString *owner, NSInteger year) {}];
-    
-
+    [client getLineupForOwner:@"A" andYear:yearNumber withBlock:^void(NSString *lineup) {
+        aLineup = lineup;
+        NSLog(@"%@", aLineup);
+    }];
+    [client getLineupForOwner:@"T" andYear:yearNumber withBlock:^void(NSString *lineup) {
+        tLineup = lineup;
+        NSLog(@"%@", tLineup);
+    }];
+    [client getLineupForOwner:@"P" andYear:yearNumber withBlock:^void(NSString *lineup) {
+        pLineup = lineup;
+        NSLog(@"%@", pLineup);
+    }];
 }
 
 
