@@ -10,6 +10,6 @@
 
 @interface SSBRestClient : NSObject
 
-- (void)getLineupForOwner:(NSString *)owner andYear:(NSString *)year withBlock:(void (^)(NSString *lineup))block;
+- (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block;
 
 @end

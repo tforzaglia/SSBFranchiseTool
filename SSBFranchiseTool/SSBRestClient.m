@@ -11,19 +11,28 @@
 
 @implementation SSBRestClient
 
-- (void)getLineupForOwner:(NSString *)owner andYear:(NSString *)year withBlock:(void (^)(NSString *lineup))block {
+- (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block {
     
-    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/getLineup/%@/%@", year, owner];
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/getLineup/%@", year];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //NSLog(@"Response Object: %@", responseObject);
+        NSLog(@"Response Object: %@", responseObject);
         
         NSDictionary *jsonDict = (NSDictionary *) responseObject;
-        NSString *lineup = [jsonDict objectForKey:@"lineup"];
+        NSString *aLineup = [jsonDict objectForKey:@"alineup"];
+        NSString *tLineup = [jsonDict objectForKey:@"tlineup"];
+        NSString *pLineup = [jsonDict objectForKey:@"plineup"];
         
-        block(lineup);
+        NSMutableArray *mutableLineups = [[NSMutableArray alloc] init];
+        [mutableLineups addObject:aLineup];
+        [mutableLineups addObject:tLineup];
+        [mutableLineups addObject:pLineup];
+        
+        NSArray *lineups = [mutableLineups copy];
+        
+        block(lineups);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

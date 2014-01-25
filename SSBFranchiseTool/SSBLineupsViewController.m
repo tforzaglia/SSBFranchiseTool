@@ -59,17 +59,13 @@
     __block NSString *pLineup = [[NSString alloc] init];
     
     SSBRestClient *client = [[SSBRestClient alloc] init];
-    [client getLineupForOwner:@"A" andYear:yearNumber withBlock:^void(NSString *lineup) {
-        aLineup = lineup;
-        NSLog(@"%@", aLineup);
-    }];
-    [client getLineupForOwner:@"T" andYear:yearNumber withBlock:^void(NSString *lineup) {
-        tLineup = lineup;
-        NSLog(@"%@", tLineup);
-    }];
-    [client getLineupForOwner:@"P" andYear:yearNumber withBlock:^void(NSString *lineup) {
-        pLineup = lineup;
-        NSLog(@"%@", pLineup);
+    [client getLineupsForYear:yearNumber withBlock:^void(NSArray *lineups) {
+        aLineup = [lineups objectAtIndex:0];
+        tLineup = [lineups objectAtIndex:1];
+        pLineup = [lineups objectAtIndex:2];
+        NSLog(@"aLineup = %@", aLineup);
+        NSLog(@"tLineup = %@", tLineup);
+        NSLog(@"pLineup = %@", pLineup);
     }];
 }
 
