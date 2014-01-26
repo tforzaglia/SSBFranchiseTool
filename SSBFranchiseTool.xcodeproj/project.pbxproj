@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */; };
+		499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */; };
 		49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */; };
 		49B8AB84188CCCA000AE0BA2 /* SSBLineupsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */; };
 		49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */; };
@@ -48,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		079AE16BAE09411887F321F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBSalaryCapViewController.h; sourceTree = "<group>"; };
+		499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBSalaryCapViewController.m; sourceTree = "<group>"; };
+		499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBSalaryCapView.xib; sourceTree = "<group>"; };
 		49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBLineupsViewController.h; sourceTree = "<group>"; };
 		49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBLineupsViewController.m; sourceTree = "<group>"; };
 		49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBLineupsView.xib; sourceTree = "<group>"; };
@@ -238,6 +243,9 @@
 				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
 				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
 				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
+				499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */,
+				499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */,
+				499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */,
 				49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */,
 				49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */,
 				49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */,
@@ -342,6 +350,7 @@
 				49CEFD621881B8990015F35D /* salarycapicon.png in Resources */,
 				49CEFD5E1881B7CD0015F35D /* rulesicon.png in Resources */,
 				49CEFD611881B8990015F35D /* salaryicon.png in Resources */,
+				499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */,
 				49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */,
 				49CEFD681881BC570015F35D /* lineupsicon.jpg in Resources */,
 				49F176111880E50100925BAD /* SSBRulesView.xib in Resources */,
@@ -405,6 +414,7 @@
 				49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */,
 				49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */,
 				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
+				499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */,
 				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

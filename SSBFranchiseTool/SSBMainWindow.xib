@@ -12,6 +12,7 @@
                 <outlet property="ownerSalaryCapToolbarItem" destination="Kw2-PS-aMf" id="gOs-LZ-JLv"/>
                 <outlet property="rulesToolbarItem" destination="t89-Eh-zO8" id="dap-aW-NmO"/>
                 <outlet property="rulesViewController" destination="KKG-QR-tbp" id="fXu-Hl-ZIT"/>
+                <outlet property="salaryCapViewController" destination="30M-tc-8gg" id="sGM-3j-1mE"/>
                 <outlet property="salaryToolbarItem" destination="bNw-V1-wEw" id="Oww-Ag-ek9"/>
                 <outlet property="toolbar" destination="vXV-Bg-P2P" id="zjS-Fb-ja1"/>
                 <outlet property="window" destination="1" id="3"/>
@@ -40,7 +41,11 @@
                         </connections>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="F3694F8A-5CC2-443F-8BB5-BDCFE87F54FE" label="Salary" paletteLabel="Salary" tag="-1" image="salaryicon" id="bNw-V1-wEw"/>
-                    <toolbarItem implicitItemIdentifier="9569D95C-07C7-47F5-BE51-4D9363080D7C" label="Owner Salary Cap" paletteLabel="Owner Salary Cap" tag="-1" image="salarycapicon" id="Kw2-PS-aMf"/>
+                    <toolbarItem implicitItemIdentifier="9569D95C-07C7-47F5-BE51-4D9363080D7C" label="Owner Salary Cap" paletteLabel="Owner Salary Cap" tag="-1" image="salarycapicon" id="Kw2-PS-aMf">
+                        <connections>
+                            <action selector="showSalaryCapView:" target="-2" id="Lvh-OM-MGF"/>
+                        </connections>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="C428BC14-98D9-47B1-8E32-364460551DB2" label="Lineups" paletteLabel="Lineups" tag="-1" image="lineupsicon" id="EMs-YO-Y5i">
                         <connections>
                             <action selector="showLineupsView:" target="-2" id="DKI-jt-ePe"/>
@@ -65,6 +70,7 @@
             </connections>
         </window>
         <viewController id="KKG-QR-tbp" customClass="SSBRulesViewController"/>
+        <viewController id="30M-tc-8gg" customClass="SSBSalaryCapViewController"/>
         <viewController id="3lj-pd-Ymf" customClass="SSBLineupsViewController"/>
     </objects>
     <resources>
