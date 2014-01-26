@@ -13,7 +13,7 @@
 
 @interface SSBLineupsViewController ()
 
-@property NSMutableArray *numebrArray;
+@property NSMutableArray *numberArray;
 @property NSMutableArray *aLineupArray;
 @property NSMutableArray *tLineupArray;
 @property NSMutableArray *pLineupArray;
@@ -29,7 +29,7 @@
 @synthesize pColumn = _pColumn;
 @synthesize tColumn = _tColumn;
 
-@synthesize numebrArray = _numberArray;
+@synthesize numberArray = _numberArray;
 @synthesize aLineupArray = _aLineupArray;
 @synthesize tLineupArray = _tLineupArray;
 @synthesize pLineupArray = _pLineupArray;
