@@ -8,6 +8,7 @@
 
 #import "SSBSalaryCapViewController.h"
 #import "SSBConstants.h"
+#import "SSBRestClient.h"
 
 @interface SSBSalaryCapViewController ()
 
@@ -38,12 +39,20 @@
         [_yearArray addObject:[NSNumber numberWithInt:i]];
     }
     
+    // make a call to the rest client , get the salary cap through the year array for each owner
+    SSBRestClient *client = [[SSBRestClient alloc] init];
+    [client getOwnerSalariesWithBlock:^void(NSArray *aSalary, NSArray *tSalary, NSArray *pSalary) {
+        _aSalaryArray = [aSalary mutableCopy];
+        _tSalaryArray = [tSalary mutableCopy];
+        _pSalaryArray = [pSalary mutableCopy];
+    }];
+    
     return [super initWithNibName:@"SSBSalaryCapView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
 - (void)awakeFromNib {
     
-    // make a call to the rest client , get the salary cap through the yearr array for each owner
+
 }
 
 @end

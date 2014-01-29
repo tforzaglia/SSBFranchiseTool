@@ -10,6 +10,7 @@
 
 @interface SSBRestClient : NSObject
 
+- (void)getOwnerSalariesWithBlock:(void (^)(NSArray *aSalaries, NSArray *tSalaries, NSArray *pSalaries))block;
 - (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block;
 
 @end

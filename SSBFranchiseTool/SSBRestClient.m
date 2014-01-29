@@ -37,7 +37,34 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+- (void)getOwnerSalariesWithBlock:(void (^)(NSArray *, NSArray *, NSArray *))block {
     
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/getAllSalary"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        
+        NSDictionary *jsonDict = (NSDictionary *) responseObject;
+        NSMutableArray *aTotalSalary = [jsonDict objectForKey:@"aTotalSalary"];
+        NSMutableArray *aSalaryRemaining = [jsonDict objectForKey:@"aSalaryRemaining"];
+        NSMutableArray *tTotalSalary = [jsonDict objectForKey:@"tTotalSalary"];
+        NSMutableArray *tSalaryRemaining = [jsonDict objectForKey:@"tSalaryRemaining"];
+        NSMutableArray *pTotalSalary = [jsonDict objectForKey:@"pTotalSalary"];
+        NSMutableArray *pSalaryRemaining = [jsonDict objectForKey:@"pSalaryRemaining"];
+        
+        NSArray *aArray = [[NSMutableArray alloc] initWithObjects:aTotalSalary, aSalaryRemaining, nil];
+        NSArray *tArray = [[NSMutableArray alloc] initWithObjects:tTotalSalary, tSalaryRemaining, nil];
+        NSArray *pArray = [[NSMutableArray alloc] initWithObjects:pTotalSalary, pSalaryRemaining, nil];
+        
+        block(aArray, tArray, pArray);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end
