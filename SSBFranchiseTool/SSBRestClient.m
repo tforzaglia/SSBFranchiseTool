@@ -49,16 +49,16 @@
         NSLog(@"Response Object: %@", responseObject);
         
         NSDictionary *jsonDict = (NSDictionary *) responseObject;
-        NSMutableArray *aTotalSalary = [jsonDict objectForKey:@"aTotalSalary"];
-        NSMutableArray *aSalaryRemaining = [jsonDict objectForKey:@"aSalaryRemaining"];
-        NSMutableArray *tTotalSalary = [jsonDict objectForKey:@"tTotalSalary"];
-        NSMutableArray *tSalaryRemaining = [jsonDict objectForKey:@"tSalaryRemaining"];
-        NSMutableArray *pTotalSalary = [jsonDict objectForKey:@"pTotalSalary"];
-        NSMutableArray *pSalaryRemaining = [jsonDict objectForKey:@"pSalaryRemaining"];
+        NSArray *aTotalSalary = [jsonDict objectForKey:@"aTotalSalary"];
+        NSArray *aSalaryRemaining = [jsonDict objectForKey:@"aSalaryRemaining"];
+        NSArray *tTotalSalary = [jsonDict objectForKey:@"tTotalSalary"];
+        NSArray *tSalaryRemaining = [jsonDict objectForKey:@"tSalaryRemaining"];
+        NSArray *pTotalSalary = [jsonDict objectForKey:@"pTotalSalary"];
+        NSArray *pSalaryRemaining = [jsonDict objectForKey:@"pSalaryRemaining"];
         
-        NSArray *aArray = [[NSMutableArray alloc] initWithObjects:aTotalSalary, aSalaryRemaining, nil];
-        NSArray *tArray = [[NSMutableArray alloc] initWithObjects:tTotalSalary, tSalaryRemaining, nil];
-        NSArray *pArray = [[NSMutableArray alloc] initWithObjects:pTotalSalary, pSalaryRemaining, nil];
+        NSArray *aArray = [[NSArray alloc] initWithObjects:aTotalSalary, aSalaryRemaining, nil];
+        NSArray *tArray = [[NSArray alloc] initWithObjects:tTotalSalary, tSalaryRemaining, nil];
+        NSArray *pArray = [[NSArray alloc] initWithObjects:pTotalSalary, pSalaryRemaining, nil];
         
         block(aArray, tArray, pArray);
         

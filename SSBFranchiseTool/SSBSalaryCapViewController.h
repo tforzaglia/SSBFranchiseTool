@@ -16,4 +16,6 @@
 @property (weak) IBOutlet NSTableColumn *tColumn;
 @property (weak) IBOutlet NSTableColumn *pColumn;
 
+- (void)fillSalaryTable;
+
 @end

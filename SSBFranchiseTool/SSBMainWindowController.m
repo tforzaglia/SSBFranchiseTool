@@ -53,6 +53,7 @@
 
 - (IBAction)showSalaryCapView:(id)sender {
     
+    [_salaryCapViewController fillSalaryTable];
     self.window.contentView = _salaryCapViewController.view;
 }
 
