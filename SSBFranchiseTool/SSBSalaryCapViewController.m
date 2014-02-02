@@ -76,7 +76,6 @@
         
         [_tableView performSelectorOnMainThread:@selector( reloadData ) withObject:nil waitUntilDone:NO];
     }];
-    
 }
 
 #pragma mark NSTableViewDataSource Protocol Methods
@@ -100,21 +99,21 @@
         float remaining = [[_aSalaryRemainingArray objectAtIndex:row] floatValue];
         float used = total - remaining;
         
-        return [NSString stringWithFormat:@"%f / %f", used, total];
+        return [NSString stringWithFormat:@"%g / %g", used, total];
     }
     else if (tableColumn == _tColumn) {
         float total = [[_tTotalSalaryArray objectAtIndex:row] floatValue];
         float remaining = [[_tSalaryRemainingArray objectAtIndex:row] floatValue];
         float used = total - remaining;
         
-        return [NSString stringWithFormat:@"%f / %f", used, total];
+        return [NSString stringWithFormat:@"%g / %g", used, total];
     }
     else if (tableColumn == _pColumn) {
         float total = [[_pTotalSalaryArray objectAtIndex:row] floatValue];
         float remaining = [[_pSalaryRemainingArray objectAtIndex:row] floatValue];
         float used = total - remaining;
         
-        return [NSString stringWithFormat:@"%f / %f", used, total];
+        return [NSString stringWithFormat:@"%g / %g", used, total];
     }
     else
         return @"";
