@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SSBMainWindowController">
             <connections>
+                <outlet property="fighterSalaryViewController" destination="dh3-S4-eG9" id="9mc-Ny-y5j"/>
                 <outlet property="lineupsToolbarItem" destination="EMs-YO-Y5i" id="nUG-fd-81Q"/>
                 <outlet property="lineupsViewController" destination="3lj-pd-Ymf" id="Dux-AR-L4C"/>
                 <outlet property="ownerSalaryCapToolbarItem" destination="Kw2-PS-aMf" id="gOs-LZ-JLv"/>
@@ -40,7 +41,11 @@
                             <action selector="showRulesView:" target="-2" id="CQL-Va-xjF"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="F3694F8A-5CC2-443F-8BB5-BDCFE87F54FE" label="Salary" paletteLabel="Salary" tag="-1" image="salaryicon" id="bNw-V1-wEw"/>
+                    <toolbarItem implicitItemIdentifier="F3694F8A-5CC2-443F-8BB5-BDCFE87F54FE" label="Salary" paletteLabel="Salary" tag="-1" image="salaryicon" id="bNw-V1-wEw">
+                        <connections>
+                            <action selector="showFighterSalaryView:" target="-2" id="DlA-AP-qwb"/>
+                        </connections>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="9569D95C-07C7-47F5-BE51-4D9363080D7C" label="Owner Salary Cap" paletteLabel="Owner Salary Cap" tag="-1" image="salarycapicon" id="Kw2-PS-aMf">
                         <connections>
                             <action selector="showSalaryCapView:" target="-2" id="Lvh-OM-MGF"/>
@@ -72,6 +77,7 @@
         <viewController id="KKG-QR-tbp" customClass="SSBRulesViewController"/>
         <viewController id="30M-tc-8gg" customClass="SSBSalaryCapViewController"/>
         <viewController id="3lj-pd-Ymf" customClass="SSBLineupsViewController"/>
+        <viewController id="dh3-S4-eG9" customClass="SSBFighterSalaryViewController"/>
     </objects>
     <resources>
         <image name="lineupsicon" width="100" height="100"/>

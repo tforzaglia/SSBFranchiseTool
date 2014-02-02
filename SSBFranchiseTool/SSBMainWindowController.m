@@ -10,6 +10,7 @@
 #import "SSBRulesViewController.h"
 #import "SSBLineupsViewController.h"
 #import "SSBSalaryCapViewController.h"
+#import "SSBFighterSalaryViewController.h"
 
 @interface SSBMainWindowController ()
 
@@ -24,6 +25,7 @@
 @synthesize yearsToolbarItem = _yearsToolbarItem;
 
 @synthesize rulesViewController = _rulesViewController;
+@synthesize fighterSalaryViewController = _fighterSalaryViewController;
 @synthesize salaryCapViewController = _salaryCapViewController;
 @synthesize lineupsViewController = _lineupsViewController;
 
@@ -49,6 +51,11 @@
 - (IBAction)showRulesView:(id)sender {
     
     self.window.contentView = _rulesViewController.view;
+}
+
+- (IBAction)showFighterSalaryView:(id)sender {
+    
+    self.window.contentView = _fighterSalaryViewController.view;
 }
 
 - (IBAction)showSalaryCapView:(id)sender {

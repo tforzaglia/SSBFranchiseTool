@@ -11,6 +11,7 @@
 @class SSBRulesViewController;
 @class SSBSalaryCapViewController;
 @class SSBLineupsViewController;
+@class SSBFighterSalaryViewController;
 
 @interface SSBMainWindowController : NSWindowController
 
@@ -22,10 +23,12 @@
 @property (weak) IBOutlet NSToolbarItem *yearsToolbarItem;
 
 @property (weak) IBOutlet SSBRulesViewController *rulesViewController;
+@property (weak) IBOutlet SSBFighterSalaryViewController *fighterSalaryViewController;
 @property (weak) IBOutlet SSBSalaryCapViewController *salaryCapViewController;
 @property (weak) IBOutlet SSBLineupsViewController *lineupsViewController;
 
 - (IBAction)showRulesView:(id)sender;
+- (IBAction)showFighterSalaryView:(id)sender;
 - (IBAction)showSalaryCapView:(id)sender;
 - (IBAction)showLineupsView:(id)sender;
 
