@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */; };
+		4929654F189DEAA00035C5D3 /* SSBFighterSalaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */; };
 		499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */; };
 		499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */; };
 		49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */; };
@@ -50,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		079AE16BAE09411887F321F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4929654B189DEAA00035C5D3 /* SSBFighterSalaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBFighterSalaryViewController.h; sourceTree = "<group>"; };
+		4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBFighterSalaryViewController.m; sourceTree = "<group>"; };
+		4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBFighterSalaryView.xib; sourceTree = "<group>"; };
 		499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBSalaryCapViewController.h; sourceTree = "<group>"; };
 		499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBSalaryCapViewController.m; sourceTree = "<group>"; };
 		499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBSalaryCapView.xib; sourceTree = "<group>"; };
@@ -243,12 +248,15 @@
 				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
 				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
 				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
-				499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */,
-				499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */,
-				499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */,
 				49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */,
 				49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */,
 				49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */,
+				499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */,
+				499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */,
+				499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */,
+				4929654B189DEAA00035C5D3 /* SSBFighterSalaryViewController.h */,
+				4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */,
+				4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,6 +361,7 @@
 				499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */,
 				49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */,
 				49CEFD681881BC570015F35D /* lineupsicon.jpg in Resources */,
+				4929654F189DEAA00035C5D3 /* SSBFighterSalaryView.xib in Resources */,
 				49F176111880E50100925BAD /* SSBRulesView.xib in Resources */,
 				49CEFD641881BBE00015F35D /* yearicon.png in Resources */,
 				49C5F3741872885700E24D00 /* Credits.rtf in Resources */,
@@ -413,6 +422,7 @@
 				49C5F3771872885700E24D00 /* SSBDocument.m in Sources */,
 				49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */,
 				49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */,
+				4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */,
 				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
 				499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */,
 				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
