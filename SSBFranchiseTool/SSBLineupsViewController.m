@@ -54,8 +54,8 @@
     [_yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
     for (int i = 1; i <= NumberOfYears; i++) {
-        NSString *str = [NSString stringWithFormat:@"Year %d", i];
-        [yearStrings addObject:str];
+        NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
+        [yearStrings addObject:yearString];
     }
     
     [_yearSelectionButton addItemsWithTitles:yearStrings];
