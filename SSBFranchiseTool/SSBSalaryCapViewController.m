@@ -74,7 +74,7 @@
         _pTotalSalaryArray = [pSalary objectAtIndex:0];
         _pSalaryRemainingArray = [pSalary objectAtIndex:1];
         
-        [_tableView performSelectorOnMainThread:@selector( reloadData ) withObject:nil waitUntilDone:NO];
+        [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
 }
 

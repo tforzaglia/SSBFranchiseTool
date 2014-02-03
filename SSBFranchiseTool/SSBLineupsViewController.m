@@ -75,7 +75,7 @@
         _tLineupArray = [[[lineups objectAtIndex:1] componentsSeparatedByString:@","] mutableCopy];
         _pLineupArray = [[[lineups objectAtIndex:2] componentsSeparatedByString:@","] mutableCopy];
         
-        [_tableView performSelectorOnMainThread:@selector( reloadData ) withObject:nil waitUntilDone:NO];
+        [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
 }
 
