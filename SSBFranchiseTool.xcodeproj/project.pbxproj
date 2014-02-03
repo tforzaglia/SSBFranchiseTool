@@ -35,6 +35,7 @@
 		49CEFD621881B8990015F35D /* salarycapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD601881B8990015F35D /* salarycapicon.png */; };
 		49CEFD641881BBE00015F35D /* yearicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD631881BBE00015F35D /* yearicon.png */; };
 		49CEFD681881BC570015F35D /* lineupsicon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD671881BC570015F35D /* lineupsicon.jpg */; };
+		49E8317B189F34F6009F5D03 /* SSBFighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E8317A189F34F6009F5D03 /* SSBFighter.m */; };
 		49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F1760E1880E50000925BAD /* SSBRulesViewController.m */; };
 		49F176111880E50100925BAD /* SSBRulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F1760F1880E50000925BAD /* SSBRulesView.xib */; };
 		A1821E8A293547B5ADA06A1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079AE16BAE09411887F321F5 /* libPods.a */; };
@@ -94,6 +95,8 @@
 		49CEFD601881B8990015F35D /* salarycapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salarycapicon.png; path = ../../../salarycapicon.png; sourceTree = "<group>"; };
 		49CEFD631881BBE00015F35D /* yearicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yearicon.png; path = ../../../yearicon.png; sourceTree = "<group>"; };
 		49CEFD671881BC570015F35D /* lineupsicon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lineupsicon.jpg; path = ../../../lineupsicon.jpg; sourceTree = "<group>"; };
+		49E83179189F34F6009F5D03 /* SSBFighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBFighter.h; sourceTree = "<group>"; };
+		49E8317A189F34F6009F5D03 /* SSBFighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBFighter.m; sourceTree = "<group>"; };
 		49F1760D1880E50000925BAD /* SSBRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBRulesViewController.h; sourceTree = "<group>"; };
 		49F1760E1880E50000925BAD /* SSBRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBRulesViewController.m; sourceTree = "<group>"; };
 		49F1760F1880E50000925BAD /* SSBRulesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBRulesView.xib; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 		49C5F3691872885600E24D00 /* SSBFranchiseTool */ = {
 			isa = PBXGroup;
 			children = (
+				49E83178189F34D3009F5D03 /* Model */,
 				49CEFD6A188216A70015F35D /* Windows */,
 				49CEFD6B188216B50015F35D /* Views */,
 				49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */,
@@ -269,6 +273,15 @@
 				49C5F3781872885700E24D00 /* SSBDocument.xib */,
 			);
 			name = Document;
+			sourceTree = "<group>";
+		};
+		49E83178189F34D3009F5D03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49E83179189F34F6009F5D03 /* SSBFighter.h */,
+				49E8317A189F34F6009F5D03 /* SSBFighter.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +434,7 @@
 				49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */,
 				49C5F3771872885700E24D00 /* SSBDocument.m in Sources */,
 				49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */,
+				49E8317B189F34F6009F5D03 /* SSBFighter.m in Sources */,
 				49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */,
 				4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */,
 				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
