@@ -8,10 +8,13 @@
 
 #import "SSBFighterSalaryViewController.h"
 #import "SSBConstants.h"
+#import "SSBRestClient.h"
 
 @interface SSBFighterSalaryViewController ()
 
-@property NSMutableArray *fighterArray;
+@property NSMutableArray *fighterNameArray;
+@property NSMutableArray *fighterObjectArray;
+@property NSString *yearNumber;
 
 @end
 
@@ -23,7 +26,9 @@
 @synthesize ownerColumn = _ownerColumn;
 @synthesize salaryColumn = _salaryColumn;
 
-@synthesize fighterArray = _fighterArray;
+@synthesize fighterNameArray = _fighterNameArray;
+@synthesize fighterObjectArray = _fighterObjectArray;
+@synthesize yearNumber = _yearNumber;
 
 - (id)init {
     
@@ -33,10 +38,26 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     
     self = [super init];
-    _fighterArray = [[NSMutableArray alloc] initWithObjects:@"Bowser", @"Captain Falcon", @"Diddy Kong", @"Donkey Kong", @"Falco", @"Fox", @"Ganondorf", @"Ice Climbers", @"Ike", @"Jigglypuff", @"King Dedede", @"Kirby", @"Link" ,
+    
+    //  temp until all fighters are added to the DB
+    //  _fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Fox", @"Wolf", nil];
+    _fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Bowser", @"Captain Falcon", @"Diddy Kong", @"Donkey Kong", @"Falco", @"Fox", @"Ganondorf", @"Ice Climbers", @"Ike", @"Jigglypuff", @"King Dedede", @"Kirby", @"Link" ,
         @"Lucario", @"Lucas", @"Luigi", @"Mario", @"Marth", @"Metaknight", @"Mr Game and Watch", @"Olimar", @"Ness",
         @"Pikachu", @"Pit", @"Pokemon Trainer", @"Peach", @"ROB", @"Samus", @"Snake", @"Sonic", @"Toon Link",
         @"Wario", @"Wolf", @"Yoshi", @"Zelda", nil];
+    
+    _yearNumber = @"1";
+    _fighterObjectArray = [[NSMutableArray alloc] init];
+    
+    SSBRestClient *client = [[SSBRestClient alloc] init];
+
+    // make rest calls for each fighter and get them into separate SSBFighter objects
+    for (int i = 0; i < [_fighterNameArray count]; i++) {
+        [client getFighterInfoByName:[_fighterNameArray objectAtIndex:i] WithBlock:^void(SSBFighter *fighter) {
+            [_fighterObjectArray addObject:fighter];
+        }];
+    }
+
     return [super initWithNibName:@"SSBFighterSalaryView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
@@ -52,29 +73,42 @@
     [_yearSelectionButton addItemsWithTitles:yearStrings];
 }
 
+- (IBAction)loadSalaryInfo:(id)sender {
+    
+    // get the selected year from the pop up button
+    NSString *selectedYear = [[_yearSelectionButton selectedItem] title];
+    
+    // remove the Year text to get the number to pass to the web service
+    _yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
+    
+    // fill the table with different info based on the year
+    [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
 #pragma mark NSTableViewDataSource Protocol Methods
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
     
     NSInteger count = 0;
-    if (_fighterArray) {
-        count = [_fighterArray count];
+    if (_fighterNameArray) {
+        count = [_fighterNameArray count];
     }
     return count;
 }
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
+    NSInteger year = [_yearNumber integerValue];
+    SSBFighter *currentFighter =  [_fighterObjectArray objectAtIndex:row];
+    
     if (tableColumn == _fighterColumn) {
-        return [_fighterArray objectAtIndex:row];
+        return [_fighterNameArray objectAtIndex:row];
     }
     else if (tableColumn == _ownerColumn) {
-        //return [_aLineupArray objectAtIndex:row];
-        return @"";
+        return [[currentFighter ownersThroughTheYears] objectAtIndex:year - 1];
     }
     else if (tableColumn == _salaryColumn) {
-        //return [_tLineupArray objectAtIndex:row];
-        return @"";
+        return [[currentFighter salariesThroughTheYears] objectAtIndex:year - 1];
     }
     else
         return @"";
@@ -84,6 +118,5 @@
     
     [tv reloadData];
 }
-
 
 @end

@@ -8,6 +8,7 @@
 
 #import "SSBRestClient.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "SSBFighter.h"
 
 @implementation SSBRestClient
 
@@ -61,6 +62,33 @@
         NSArray *pArray = [[NSArray alloc] initWithObjects:pTotalSalary, pSalaryRemaining, nil];
         
         block(aArray, tArray, pArray);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)getFighterInfoByName:(NSString *)name WithBlock:(void (^)(SSBFighter *fighter))block {
+    
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/get/%@", name];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        
+        NSDictionary *jsonDict = (NSDictionary *) responseObject;
+        SSBFighter *fighter = [[SSBFighter alloc] init];
+        [fighter setName:[jsonDict objectForKey:@"name"]];
+        [fighter setCareerWins:[[jsonDict objectForKey:@"careerWins"] integerValue]];
+        [fighter setMatchesPlayed:[[jsonDict objectForKey:@"matchesPlayed"] integerValue]];
+        [fighter setIsRestricted:[jsonDict objectForKey:@"isRestricted"]];
+        [fighter setRestrictedYear:[[jsonDict objectForKey:@"restrictedYear"] integerValue]];
+        [fighter setOwnersThroughTheYears:[jsonDict objectForKey:@"ownersThroughTheYears"]];
+        [fighter setWinsThroughTheYears:[jsonDict objectForKey:@"winsThroughTheYears"]];
+        [fighter setSalariesThroughTheYears:[jsonDict objectForKey:@"salariesThroughTheYears"]];
+        
+        block(fighter);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

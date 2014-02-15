@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SSBFighter.h"
 
 @interface SSBRestClient : NSObject
 
 - (void)getOwnerSalariesWithBlock:(void (^)(NSArray *aSalaries, NSArray *tSalaries, NSArray *pSalaries))block;
 - (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block;
+- (void)getFighterInfoByName:(NSString *)name WithBlock:(void (^)(SSBFighter *fighter))block;
 
 @end
