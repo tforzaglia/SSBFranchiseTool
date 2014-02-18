@@ -17,6 +17,7 @@
                 <outlet property="salaryToolbarItem" destination="bNw-V1-wEw" id="Oww-Ag-ek9"/>
                 <outlet property="toolbar" destination="vXV-Bg-P2P" id="zjS-Fb-ja1"/>
                 <outlet property="window" destination="1" id="3"/>
+                <outlet property="yearViewController" destination="59S-4a-46z" id="aGH-79-nl7"/>
                 <outlet property="yearsToolbarItem" destination="Zfn-jM-ElZ" id="nJv-t0-Frp"/>
             </connections>
         </customObject>
@@ -56,7 +57,11 @@
                             <action selector="showLineupsView:" target="-2" id="DKI-jt-ePe"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="F50A4247-B8A1-4EC8-96BB-E31E7CE1BA86" label="Years" paletteLabel="Years" tag="-1" image="yearicon" id="Zfn-jM-ElZ"/>
+                    <toolbarItem implicitItemIdentifier="F50A4247-B8A1-4EC8-96BB-E31E7CE1BA86" label="Years" paletteLabel="Years" tag="-1" image="yearicon" id="Zfn-jM-ElZ">
+                        <connections>
+                            <action selector="showYearView:" target="-2" id="fsu-dh-66y"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="t89-Eh-zO8"/>
@@ -78,6 +83,7 @@
         <viewController id="30M-tc-8gg" customClass="SSBSalaryCapViewController"/>
         <viewController id="3lj-pd-Ymf" customClass="SSBLineupsViewController"/>
         <viewController id="dh3-S4-eG9" customClass="SSBFighterSalaryViewController"/>
+        <viewController id="59S-4a-46z" customClass="SSBYearViewController"/>
     </objects>
     <resources>
         <image name="lineupsicon" width="100" height="100"/>

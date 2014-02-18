@@ -11,6 +11,7 @@
 #import "SSBLineupsViewController.h"
 #import "SSBSalaryCapViewController.h"
 #import "SSBFighterSalaryViewController.h"
+#import "SSBYearViewController.h"
 
 @interface SSBMainWindowController ()
 
@@ -28,6 +29,7 @@
 @synthesize fighterSalaryViewController = _fighterSalaryViewController;
 @synthesize salaryCapViewController = _salaryCapViewController;
 @synthesize lineupsViewController = _lineupsViewController;
+@synthesize yearViewController = _yearViewController;
 
 - (id)init {
     
@@ -67,6 +69,11 @@
 - (IBAction)showLineupsView:(id)sender {
     
     self.window.contentView = _lineupsViewController.view;
+}
+
+- (IBAction)showYearView:(id)sender {
+    
+    self.window.contentView = _yearViewController.view;
 }
 
 @end

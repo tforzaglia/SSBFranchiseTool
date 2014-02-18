@@ -14,6 +14,8 @@
 		493C4C0F18AF18C600601FF1 /* salaryicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0A18AF18C600601FF1 /* salaryicon.png */; };
 		493C4C1018AF18C600601FF1 /* salarycapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0B18AF18C600601FF1 /* salarycapicon.png */; };
 		493C4C1118AF18C600601FF1 /* rulesicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0C18AF18C600601FF1 /* rulesicon.png */; };
+		493C4C1518AF2C8700601FF1 /* SSBYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */; };
+		493C4C1618AF2C8700601FF1 /* SSBYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C1418AF2C8700601FF1 /* SSBYearView.xib */; };
 		499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */; };
 		499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */; };
 		49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */; };
@@ -61,6 +63,9 @@
 		493C4C0A18AF18C600601FF1 /* salaryicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salaryicon.png; path = "../../../Pictures/apps-pics/salaryicon.png"; sourceTree = "<group>"; };
 		493C4C0B18AF18C600601FF1 /* salarycapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salarycapicon.png; path = "../../../Pictures/apps-pics/salarycapicon.png"; sourceTree = "<group>"; };
 		493C4C0C18AF18C600601FF1 /* rulesicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rulesicon.png; path = "../../../Pictures/apps-pics/rulesicon.png"; sourceTree = "<group>"; };
+		493C4C1218AF2C8700601FF1 /* SSBYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBYearViewController.h; sourceTree = "<group>"; };
+		493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBYearViewController.m; sourceTree = "<group>"; };
+		493C4C1418AF2C8700601FF1 /* SSBYearView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBYearView.xib; sourceTree = "<group>"; };
 		499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBSalaryCapViewController.h; sourceTree = "<group>"; };
 		499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBSalaryCapViewController.m; sourceTree = "<group>"; };
 		499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBSalaryCapView.xib; sourceTree = "<group>"; };
@@ -261,6 +266,9 @@
 				4929654B189DEAA00035C5D3 /* SSBFighterSalaryViewController.h */,
 				4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */,
 				4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */,
+				493C4C1218AF2C8700601FF1 /* SSBYearViewController.h */,
+				493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */,
+				493C4C1418AF2C8700601FF1 /* SSBYearView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -375,6 +383,7 @@
 				499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */,
 				49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */,
 				4929654F189DEAA00035C5D3 /* SSBFighterSalaryView.xib in Resources */,
+				493C4C1618AF2C8700601FF1 /* SSBYearView.xib in Resources */,
 				49F176111880E50100925BAD /* SSBRulesView.xib in Resources */,
 				493C4C0E18AF18C600601FF1 /* yearicon.png in Resources */,
 				49C5F3741872885700E24D00 /* Credits.rtf in Resources */,
@@ -440,6 +449,7 @@
 				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
 				499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */,
 				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
+				493C4C1518AF2C8700601FF1 /* SSBYearViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
