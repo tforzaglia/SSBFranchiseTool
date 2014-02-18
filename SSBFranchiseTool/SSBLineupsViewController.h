@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SSBLineupsViewController : NSViewController <NSTableViewDataSource>
+@interface SSBLineupsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSPopUpButton *yearSelectionButton;
 @property (weak) IBOutlet NSTableView *tableView;

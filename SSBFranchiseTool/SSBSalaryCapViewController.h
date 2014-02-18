@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SSBSalaryCapViewController : NSViewController <NSTableViewDelegate>
+@interface SSBSalaryCapViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTableColumn *yearColumn;

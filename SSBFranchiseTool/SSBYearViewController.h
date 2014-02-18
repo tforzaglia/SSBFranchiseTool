@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SSBYearViewController : NSViewController
+@interface SSBYearViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SSBFighterSalaryViewController : NSViewController <NSTableViewDelegate>
+@interface SSBFighterSalaryViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSPopUpButton *yearSelectionButton;
 @property (weak) IBOutlet NSTableView *tableView;

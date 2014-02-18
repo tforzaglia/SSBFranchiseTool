@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SSBRulesViewController : NSViewController <NSTableViewDataSource>
+@interface SSBRulesViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTableColumn *winColumn;
