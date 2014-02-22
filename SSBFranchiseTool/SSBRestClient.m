@@ -70,7 +70,9 @@
 
 - (void)getFighterInfoByName:(NSString *)name WithBlock:(void (^)(SSBFighter *fighter))block {
     
-    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/get/%@", name];
+    NSString *encodedName = [name stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/get/%@", encodedName];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
