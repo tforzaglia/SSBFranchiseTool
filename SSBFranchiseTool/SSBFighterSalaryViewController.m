@@ -99,7 +99,8 @@
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
     NSInteger year = [_yearNumber integerValue];
-    SSBFighter *currentFighter =  [_fighterObjectArray objectAtIndex:row];
+    NSString *currentName = [_fighterNameArray objectAtIndex:row];
+    SSBFighter *currentFighter =  [self searchArrayForFighterByName:currentName];
     
     if (tableColumn == _fighterColumn) {
         return [_fighterNameArray objectAtIndex:row];
@@ -117,6 +118,17 @@
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
     
     [tv reloadData];
+}
+
+- (SSBFighter *)searchArrayForFighterByName:(NSString *)name {
+    
+    for (SSBFighter *fighter in _fighterObjectArray) {
+        if ([name isEqualToString:[fighter name]]) {
+            return fighter;
+        }
+    }
+    
+    return nil;
 }
 
 @end
