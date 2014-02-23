@@ -10,4 +10,12 @@
 
 @interface SSBYearViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
+@property (weak) IBOutlet NSPopUpButton *yearSelectionButton;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSTableColumn *matchNumberColumn;
+@property (weak) IBOutlet NSTableColumn *fighterColumn;
+@property (weak) IBOutlet NSTableColumn *ownerColumn;
+
+- (IBAction)loadYearData:(id)sender;
+
 @end
