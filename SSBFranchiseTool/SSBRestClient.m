@@ -9,6 +9,7 @@
 #import "SSBRestClient.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "SSBFighter.h"
+#import "SSBYear.h"
 
 @implementation SSBRestClient
 
@@ -91,6 +92,28 @@
         [fighter setSalariesThroughTheYears:[jsonDict objectForKey:@"salariesThroughTheYears"]];
         
         block(fighter);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)getMatchResultsForYear:(NSString *)year withBlock:(void (^)(SSBYear *))block {
+    
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/year/get/%@", year];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        
+        NSDictionary *jsonDict = (NSDictionary *) responseObject;
+        SSBYear *yearObject = [[SSBYear alloc] init];
+        [yearObject setMatches:[jsonDict objectForKey:@"matches"]];
+        [yearObject setFighterWinners:[jsonDict objectForKey:@"fighterWinners"]];
+        [yearObject setOwnerWinners:[jsonDict objectForKey:@"ownerWinners"]];
+        
+        block(yearObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
