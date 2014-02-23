@@ -16,6 +16,8 @@
 @property NSMutableArray *fighterObjectArray;
 @property NSString *yearNumber;
 
+- (SSBFighter *)searchArrayForFighterByName:(NSString *)name;
+    
 @end
 
 @implementation SSBFighterSalaryViewController
@@ -38,9 +40,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     
     self = [super init];
-    
-    //  temp until all fighters are added to the DB
-    //  _fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Fox", @"Wolf", nil];
+
     _fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Bowser", @"Captain Falcon", @"Diddy Kong", @"Donkey Kong", @"Falco", @"Fox", @"Ganondorf", @"Ice Climbers", @"Ike", @"Jigglypuff", @"King Dedede", @"Kirby", @"Link" ,
         @"Lucario", @"Lucas", @"Luigi", @"Mario", @"Marth", @"Metaknight", @"Mr Game and Watch", @"Olimar", @"Ness",
         @"Pikachu", @"Pit", @"Pokemon Trainer", @"Peach", @"ROB", @"Samus", @"Snake", @"Sonic", @"Toon Link",
