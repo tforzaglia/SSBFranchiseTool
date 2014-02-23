@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4913F57318B9ABAC001C9C37 /* SSBYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 4913F57218B9ABAC001C9C37 /* SSBYear.m */; };
 		4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */; };
 		4929654F189DEAA00035C5D3 /* SSBFighterSalaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */; };
 		493C4C0D18AF18C600601FF1 /* lineupsicon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0818AF18C600601FF1 /* lineupsicon.jpg */; };
@@ -55,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		079AE16BAE09411887F321F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4913F57118B9ABAC001C9C37 /* SSBYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBYear.h; sourceTree = "<group>"; };
+		4913F57218B9ABAC001C9C37 /* SSBYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBYear.m; sourceTree = "<group>"; };
 		4929654B189DEAA00035C5D3 /* SSBFighterSalaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBFighterSalaryViewController.h; sourceTree = "<group>"; };
 		4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBFighterSalaryViewController.m; sourceTree = "<group>"; };
 		4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBFighterSalaryView.xib; sourceTree = "<group>"; };
@@ -288,6 +291,8 @@
 			children = (
 				49E83179189F34F6009F5D03 /* SSBFighter.h */,
 				49E8317A189F34F6009F5D03 /* SSBFighter.m */,
+				4913F57118B9ABAC001C9C37 /* SSBYear.h */,
+				4913F57218B9ABAC001C9C37 /* SSBYear.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 				4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */,
 				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
 				499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */,
+				4913F57318B9ABAC001C9C37 /* SSBYear.m in Sources */,
 				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
 				493C4C1518AF2C8700601FF1 /* SSBYearViewController.m in Sources */,
 			);
