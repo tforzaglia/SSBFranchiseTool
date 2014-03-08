@@ -14,7 +14,8 @@
 
 - (void)getOwnerSalariesWithBlock:(void (^)(NSArray *aSalaries, NSArray *tSalaries, NSArray *pSalaries))block;
 - (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block;
-- (void)getFighterInfoByName:(NSString *)name WithBlock:(void (^)(SSBFighter *fighter))block;
+- (void)getFighterInfoByName:(NSString *)name withBlock:(void (^)(SSBFighter *fighter))block;
 - (void)getMatchResultsForYear:(NSString *)year withBlock:(void (^)(SSBYear *yearData))block;
+- (void)updateSalary:(NSString *)salary forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 
 @end

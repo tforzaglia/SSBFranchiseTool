@@ -13,6 +13,8 @@
 
 @implementation SSBRestClient
 
+#pragma mark Getter Rest Calls
+
 - (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block {
     
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/getLineup/%@", year];
@@ -69,7 +71,7 @@
     }];
 }
 
-- (void)getFighterInfoByName:(NSString *)name WithBlock:(void (^)(SSBFighter *fighter))block {
+- (void)getFighterInfoByName:(NSString *)name withBlock:(void (^)(SSBFighter *fighter))block {
     
     NSString *encodedName = [name stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 
@@ -116,6 +118,25 @@
         block(yearObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+#pragma mark Update Rest Calls
+
+- (void)updateSalary:(NSString *)salary forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
+    
+    NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/updateSalary/%@/%@/%@/", year, encodedName, salary];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        block(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(error);
         NSLog(@"Error: %@", error);
     }];
 }

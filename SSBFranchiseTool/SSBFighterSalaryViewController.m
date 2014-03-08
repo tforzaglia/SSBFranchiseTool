@@ -46,14 +46,15 @@
         @"Pikachu", @"Pit", @"Pokemon Trainer", @"Peach", @"ROB", @"Samus", @"Snake", @"Sonic", @"Toon Link",
         @"Wario", @"Wolf", @"Yoshi", @"Zelda", nil];
     
+    // set to year 1 by default
     _yearNumber = @"1";
-    _fighterObjectArray = [[NSMutableArray alloc] init];
     
+    _fighterObjectArray = [[NSMutableArray alloc] init];
     SSBRestClient *client = [[SSBRestClient alloc] init];
 
     // make rest calls for each fighter and get them into separate SSBFighter objects
     for (int i = 0; i < [_fighterNameArray count]; i++) {
-        [client getFighterInfoByName:[_fighterNameArray objectAtIndex:i] WithBlock:^void(SSBFighter *fighter) {
+        [client getFighterInfoByName:[_fighterNameArray objectAtIndex:i] withBlock:^void(SSBFighter *fighter) {
             [_fighterObjectArray addObject:fighter];
         }];
     }
@@ -83,6 +84,18 @@
     
     // fill the table with different info based on the year
     [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
+
+- (SSBFighter *)searchArrayForFighterByName:(NSString *)name {
+    
+    for (SSBFighter *fighter in _fighterObjectArray) {
+        if ([name isEqualToString:[fighter name]]) {
+            return fighter;
+        }
+    }
+    
+    return nil;
 }
 
 #pragma mark NSTableViewDataSource Protocol Methods
@@ -120,15 +133,25 @@
     [tv reloadData];
 }
 
-- (SSBFighter *)searchArrayForFighterByName:(NSString *)name {
+- (void)controlTextDidEndEditing:(NSNotification *)obj {
     
-    for (SSBFighter *fighter in _fighterObjectArray) {
-        if ([name isEqualToString:[fighter name]]) {
-            return fighter;
+    NSString *name = [_fighterNameArray objectAtIndex:[[obj object] selectedRow]];
+    NSString *salary =  [[obj.userInfo valueForKey:@"NSFieldEditor"] string];
+    
+    SSBRestClient *client = [[SSBRestClient alloc] init];
+    // determine if the column updated was the salary or owner -- call the appropriate method
+    [client updateSalary:salary forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
+        if (error) {
+            [self presentError:error];
         }
-    }
-    
-    return nil;
+        else {
+            [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+            [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                [_fighterObjectArray addObject:fighter];
+            }];
+            [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+    }];
 }
 
 @end
