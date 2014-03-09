@@ -170,4 +170,33 @@
     [tv reloadData];
 }
 
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    
+    SSBFighter *fighter = [self searchArrayForFighterByName:[_fighterNameArray objectAtIndex:row]];
+    NSTextFieldCell *textFieldCell = (NSTextFieldCell *)cell;
+    
+    if (tableColumn == _fighterColumn) {
+        switch ([fighter restrictedYear]) {
+            case 0:
+                [textFieldCell setTextColor:[NSColor blackColor]];
+                break;
+            case 1:
+                [textFieldCell setTextColor:[NSColor redColor]];
+                break;
+            case 2:
+                [textFieldCell setTextColor:[NSColor greenColor]];
+                break;
+            case 3:
+                [textFieldCell setTextColor:[NSColor blueColor]];
+                break;
+            case 4:
+                [textFieldCell setTextColor:[NSColor orangeColor]];
+                break;
+            default:
+                [textFieldCell setTextColor:[NSColor blackColor]];
+                break;
+        }
+    }
+}
+
 @end
