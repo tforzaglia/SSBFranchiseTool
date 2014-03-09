@@ -19,5 +19,7 @@
 
 - (void)updateSalary:(NSString *)salary forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 - (void)updateOwner:(NSString *)owner forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
+- (void)updateRestrictedStatus:(NSString *)isRestricted forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block;
+- (void)updateRestrictedYear:(NSInteger)restrictedYear forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block;
 
 @end

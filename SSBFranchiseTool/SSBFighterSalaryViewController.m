@@ -27,6 +27,8 @@
 @synthesize fighterColumn = _fighterColumn;
 @synthesize ownerColumn = _ownerColumn;
 @synthesize salaryColumn = _salaryColumn;
+@synthesize isRestrictedColumn = _isRestrictedColumn;
+@synthesize restrictedYearColumn = _restrictedYearColumn;
 
 @synthesize fighterNameArray = _fighterNameArray;
 @synthesize fighterObjectArray = _fighterObjectArray;
@@ -124,6 +126,12 @@
     else if (tableColumn == _salaryColumn) {
         return [[currentFighter salariesThroughTheYears] objectAtIndex:year - 1];
     }
+    else if (tableColumn == _isRestrictedColumn) {
+        return [currentFighter isRestricted];
+    }
+    else if (tableColumn == _restrictedYearColumn) {
+        return [NSNumber numberWithLong:[currentFighter restrictedYear]];
+    }
     else
         return @"";
 }
@@ -155,6 +163,38 @@
         NSString *owner =  anObject;
         [client updateOwner:owner forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
             if (error) {                
+                [self presentError:error];
+            }
+            else {
+                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                    [_fighterObjectArray addObject:fighter];
+                }];
+                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            }
+        }];
+    }
+    // edit was made in the is restricted column
+    else if (column == _isRestrictedColumn) {
+        NSString *restrictedStatus = anObject;
+        [client updateRestrictedStatus:restrictedStatus forFighter:name withBlock:^void(NSError *error) {
+            if (error) {
+                [self presentError:error];
+            }
+            else {
+                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                    [_fighterObjectArray addObject:fighter];
+                }];
+                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            }
+        }];
+    }
+    // edit was made in the restricted year column
+    else if (column == _restrictedYearColumn) {
+        NSInteger restrictedYear = [anObject intValue];
+        [client updateRestrictedYear:restrictedYear forFighter:name withBlock:^void(NSError *error) {
+            if (error) {
                 [self presentError:error];
             }
             else {

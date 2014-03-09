@@ -15,6 +15,8 @@
 @property (weak) IBOutlet NSTableColumn *fighterColumn;
 @property (weak) IBOutlet NSTableColumn *ownerColumn;
 @property (weak) IBOutlet NSTableColumn *salaryColumn;
+@property (weak) IBOutlet NSTableColumn *isRestrictedColumn;
+@property (weak) IBOutlet NSTableColumn *restrictedYearColumn;
 
 - (IBAction)loadSalaryInfo:(id)sender;
 

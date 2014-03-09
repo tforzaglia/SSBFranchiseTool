@@ -8,7 +8,9 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SSBFighterSalaryViewController">
             <connections>
                 <outlet property="fighterColumn" destination="ObJ-Ka-Wcc" id="yrQ-Zr-Ird"/>
+                <outlet property="isRestrictedColumn" destination="V9K-fX-w1l" id="6AF-qd-vvy"/>
                 <outlet property="ownerColumn" destination="uMk-oH-5Xv" id="d3h-jx-Y9U"/>
+                <outlet property="restrictedYearColumn" destination="SVW-7g-eTY" id="9jR-fi-XVv"/>
                 <outlet property="salaryColumn" destination="RWb-QC-nKa" id="LAQ-U8-2SG"/>
                 <outlet property="tableView" destination="UST-rZ-au8" id="dvm-Wc-tLT"/>
                 <outlet property="view" destination="1" id="2"/>
@@ -40,14 +42,14 @@
                     </connections>
                 </popUpButton>
                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyN-hK-BPk">
-                    <rect key="frame" x="20" y="20" width="420" height="478"/>
+                    <rect key="frame" x="20" y="20" width="459" height="478"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" ambiguous="YES" misplaced="YES" id="hIu-Sa-eoD">
-                        <rect key="frame" x="1" y="17" width="418" height="460"/>
+                        <rect key="frame" x="1" y="17" width="457" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="IRb-3y-cRx" id="UST-rZ-au8">
-                                <rect key="frame" x="0.0" y="0.0" width="418" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="457" height="460"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,7 +68,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn width="121.265625" minWidth="40" maxWidth="1000" id="RWb-QC-nKa">
+                                    <tableColumn width="62.328125" minWidth="40" maxWidth="1000" id="RWb-QC-nKa">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Salary">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -79,13 +81,39 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn width="131" minWidth="10" maxWidth="3.4028234663852886e+38" id="uMk-oH-5Xv">
+                                    <tableColumn width="64.2890625" minWidth="10" maxWidth="3.4028234663852886e+38" id="uMk-oH-5Xv">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Owner">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
                                         <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="ucY-hl-N80">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                    <tableColumn width="74" minWidth="10" maxWidth="3.4028234663852886e+38" id="V9K-fX-w1l">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Is Restricted?">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Text" id="zN3-Ik-0L9">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                    <tableColumn width="85" minWidth="10" maxWidth="3.4028234663852886e+38" id="SVW-7g-eTY">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Restricted Year">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="nDj-JG-ELN">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -110,7 +138,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <tableHeaderView key="headerView" id="IRb-3y-cRx">
-                        <rect key="frame" x="0.0" y="0.0" width="418" height="17"/>
+                        <rect key="frame" x="0.0" y="0.0" width="457" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>

@@ -144,7 +144,41 @@
 - (void)updateOwner:(NSString *)owner forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
     
     NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/updateOwner/%@/%@/%@/", year, encodedName, owner];
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/updateOwner/%@/%@/%@", year, encodedName, owner];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        block(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(error);
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)updateRestrictedStatus:(NSString *)isRestricted forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block {
+    
+    NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/setRestrictedStatus/%@/%@", encodedName, isRestricted];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        block(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(error);
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+-(void)updateRestrictedYear:(NSInteger)restrictedYear forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block {
+    
+    NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/setRestrictedYear/%@/%ld", encodedName, (long)restrictedYear];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
