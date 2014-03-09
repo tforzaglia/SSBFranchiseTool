@@ -131,15 +131,14 @@
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
     
     NSString *name = [_fighterNameArray objectAtIndex:row];
-    NSString *salary =  anObject;
     
     SSBRestClient *client = [[SSBRestClient alloc] init];
     
     // edit was made in the salasry column
     if (column == _salaryColumn) {
+        NSString *salary =  anObject;
         [client updateSalary:salary forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
             if (error) {
-                
                 [self presentError:error];
             }
             else {
@@ -153,7 +152,19 @@
     }
     // edit was made in the owner column
     else if (column == _ownerColumn) {
-        
+        NSString *owner =  anObject;
+        [client updateOwner:owner forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
+            if (error) {                
+                [self presentError:error];
+            }
+            else {
+                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                    [_fighterObjectArray addObject:fighter];
+                }];
+                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            }
+        }];
     }
     
     [tv reloadData];
