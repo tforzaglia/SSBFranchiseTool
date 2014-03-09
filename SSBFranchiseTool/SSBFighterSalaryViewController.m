@@ -130,28 +130,33 @@
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
     
-    [tv reloadData];
-}
-
-- (void)controlTextDidEndEditing:(NSNotification *)obj {
-    
-    NSString *name = [_fighterNameArray objectAtIndex:[[obj object] selectedRow]];
-    NSString *salary =  [[obj.userInfo valueForKey:@"NSFieldEditor"] string];
+    NSString *name = [_fighterNameArray objectAtIndex:row];
+    NSString *salary =  anObject;
     
     SSBRestClient *client = [[SSBRestClient alloc] init];
-    // determine if the column updated was the salary or owner -- call the appropriate method
-    [client updateSalary:salary forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
-        if (error) {
-            [self presentError:error];
-        }
-        else {
-            [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
-            [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                [_fighterObjectArray addObject:fighter];
-            }];
-            [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-        }
-    }];
+    
+    // edit was made in the salasry column
+    if (column == _salaryColumn) {
+        [client updateSalary:salary forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
+            if (error) {
+                
+                [self presentError:error];
+            }
+            else {
+                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                    [_fighterObjectArray addObject:fighter];
+                }];
+                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            }
+        }];
+    }
+    // edit was made in the owner column
+    else if (column == _ownerColumn) {
+        
+    }
+    
+    [tv reloadData];
 }
 
 @end
