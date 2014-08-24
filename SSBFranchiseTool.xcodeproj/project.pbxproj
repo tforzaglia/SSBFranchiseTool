@@ -1,0 +1,691 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4913F57318B9ABAC001C9C37 /* SSBYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 4913F57218B9ABAC001C9C37 /* SSBYear.m */; };
+		4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */; };
+		4929654F189DEAA00035C5D3 /* SSBFighterSalaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */; };
+		493C4C0D18AF18C600601FF1 /* lineupsicon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0818AF18C600601FF1 /* lineupsicon.jpg */; };
+		493C4C0E18AF18C600601FF1 /* yearicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0918AF18C600601FF1 /* yearicon.png */; };
+		493C4C0F18AF18C600601FF1 /* salaryicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0A18AF18C600601FF1 /* salaryicon.png */; };
+		493C4C1018AF18C600601FF1 /* salarycapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0B18AF18C600601FF1 /* salarycapicon.png */; };
+		493C4C1118AF18C600601FF1 /* rulesicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C0C18AF18C600601FF1 /* rulesicon.png */; };
+		493C4C1518AF2C8700601FF1 /* SSBYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */; };
+		493C4C1618AF2C8700601FF1 /* SSBYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493C4C1418AF2C8700601FF1 /* SSBYearView.xib */; };
+		499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */; };
+		499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */; };
+		49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */; };
+		49B8AB84188CCCA000AE0BA2 /* SSBLineupsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */; };
+		49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */; };
+		49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */; };
+		49C5F3641872885600E24D00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5F3631872885600E24D00 /* Cocoa.framework */; };
+		49C5F36E1872885600E24D00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F36C1872885600E24D00 /* InfoPlist.strings */; };
+		49C5F3701872885700E24D00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F36F1872885700E24D00 /* main.m */; };
+		49C5F3741872885700E24D00 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F3721872885700E24D00 /* Credits.rtf */; };
+		49C5F3771872885700E24D00 /* SSBDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F3761872885700E24D00 /* SSBDocument.m */; };
+		49C5F37A1872885700E24D00 /* SSBDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F3781872885700E24D00 /* SSBDocument.xib */; };
+		49C5F37D1872885700E24D00 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F37B1872885700E24D00 /* MainMenu.xib */; };
+		49C5F37F1872885700E24D00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F37E1872885700E24D00 /* Images.xcassets */; };
+		49C5F3861872885700E24D00 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5F3851872885700E24D00 /* XCTest.framework */; };
+		49C5F3871872885700E24D00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5F3631872885600E24D00 /* Cocoa.framework */; };
+		49C5F38F1872885700E24D00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F38D1872885700E24D00 /* InfoPlist.strings */; };
+		49C5F3911872885700E24D00 /* SSBFranchiseToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */; };
+		49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49C5F3A0187296CD00E24D00 /* ssb.icns */; };
+		49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CEFD571881B4520015F35D /* SSBMainWindowController.m */; };
+		49CEFD5A1881B4520015F35D /* SSBMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CEFD581881B4520015F35D /* SSBMainWindow.xib */; };
+		49E8317B189F34F6009F5D03 /* SSBFighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E8317A189F34F6009F5D03 /* SSBFighter.m */; };
+		49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F1760E1880E50000925BAD /* SSBRulesViewController.m */; };
+		49F176111880E50100925BAD /* SSBRulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F1760F1880E50000925BAD /* SSBRulesView.xib */; };
+		A1821E8A293547B5ADA06A1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079AE16BAE09411887F321F5 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49C5F3881872885700E24D00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49C5F3581872885600E24D00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49C5F35F1872885600E24D00;
+			remoteInfo = SSBFranchiseTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		079AE16BAE09411887F321F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4913F57118B9ABAC001C9C37 /* SSBYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBYear.h; sourceTree = "<group>"; };
+		4913F57218B9ABAC001C9C37 /* SSBYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBYear.m; sourceTree = "<group>"; };
+		4929654B189DEAA00035C5D3 /* SSBFighterSalaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBFighterSalaryViewController.h; sourceTree = "<group>"; };
+		4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBFighterSalaryViewController.m; sourceTree = "<group>"; };
+		4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBFighterSalaryView.xib; sourceTree = "<group>"; };
+		493C4C0818AF18C600601FF1 /* lineupsicon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lineupsicon.jpg; path = "../../../Pictures/apps-pics/lineupsicon.jpg"; sourceTree = "<group>"; };
+		493C4C0918AF18C600601FF1 /* yearicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yearicon.png; path = "../../../Pictures/apps-pics/yearicon.png"; sourceTree = "<group>"; };
+		493C4C0A18AF18C600601FF1 /* salaryicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salaryicon.png; path = "../../../Pictures/apps-pics/salaryicon.png"; sourceTree = "<group>"; };
+		493C4C0B18AF18C600601FF1 /* salarycapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = salarycapicon.png; path = "../../../Pictures/apps-pics/salarycapicon.png"; sourceTree = "<group>"; };
+		493C4C0C18AF18C600601FF1 /* rulesicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rulesicon.png; path = "../../../Pictures/apps-pics/rulesicon.png"; sourceTree = "<group>"; };
+		493C4C1218AF2C8700601FF1 /* SSBYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBYearViewController.h; sourceTree = "<group>"; };
+		493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBYearViewController.m; sourceTree = "<group>"; };
+		493C4C1418AF2C8700601FF1 /* SSBYearView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBYearView.xib; sourceTree = "<group>"; };
+		499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBSalaryCapViewController.h; sourceTree = "<group>"; };
+		499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBSalaryCapViewController.m; sourceTree = "<group>"; };
+		499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBSalaryCapView.xib; sourceTree = "<group>"; };
+		49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBLineupsViewController.h; sourceTree = "<group>"; };
+		49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBLineupsViewController.m; sourceTree = "<group>"; };
+		49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBLineupsView.xib; sourceTree = "<group>"; };
+		49B8AB85188CD2C100AE0BA2 /* SSBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBConstants.h; sourceTree = "<group>"; };
+		49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBConstants.m; sourceTree = "<group>"; };
+		49B8AB89188CE33D00AE0BA2 /* SSBRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBRestClient.h; sourceTree = "<group>"; };
+		49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBRestClient.m; sourceTree = "<group>"; };
+		49C5F3601872885600E24D00 /* SSBFranchiseTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBFranchiseTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C5F3631872885600E24D00 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		49C5F3661872885600E24D00 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		49C5F3671872885600E24D00 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49C5F3681872885600E24D00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49C5F36B1872885600E24D00 /* SSBFranchiseTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSBFranchiseTool-Info.plist"; sourceTree = "<group>"; };
+		49C5F36D1872885600E24D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49C5F36F1872885700E24D00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		49C5F3711872885700E24D00 /* SSBFranchiseTool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSBFranchiseTool-Prefix.pch"; sourceTree = "<group>"; };
+		49C5F3731872885700E24D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		49C5F3751872885700E24D00 /* SSBDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBDocument.h; sourceTree = "<group>"; };
+		49C5F3761872885700E24D00 /* SSBDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBDocument.m; sourceTree = "<group>"; };
+		49C5F3791872885700E24D00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SSBDocument.xib; sourceTree = "<group>"; };
+		49C5F37C1872885700E24D00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		49C5F37E1872885700E24D00 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		49C5F3841872885700E24D00 /* SSBFranchiseToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSBFranchiseToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C5F3851872885700E24D00 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		49C5F38C1872885700E24D00 /* SSBFranchiseToolTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SSBFranchiseToolTests-Info.plist"; sourceTree = "<group>"; };
+		49C5F38E1872885700E24D00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBFranchiseToolTests.m; sourceTree = "<group>"; };
+		49C5F3A0187296CD00E24D00 /* ssb.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ssb.icns; path = ../ssb.icns; sourceTree = "<group>"; };
+		49CEFD561881B4520015F35D /* SSBMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBMainWindowController.h; sourceTree = "<group>"; };
+		49CEFD571881B4520015F35D /* SSBMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBMainWindowController.m; sourceTree = "<group>"; };
+		49CEFD581881B4520015F35D /* SSBMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBMainWindow.xib; sourceTree = "<group>"; };
+		49E83179189F34F6009F5D03 /* SSBFighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBFighter.h; sourceTree = "<group>"; };
+		49E8317A189F34F6009F5D03 /* SSBFighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBFighter.m; sourceTree = "<group>"; };
+		49F1760D1880E50000925BAD /* SSBRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBRulesViewController.h; sourceTree = "<group>"; };
+		49F1760E1880E50000925BAD /* SSBRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBRulesViewController.m; sourceTree = "<group>"; };
+		49F1760F1880E50000925BAD /* SSBRulesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBRulesView.xib; sourceTree = "<group>"; };
+		8F77560E27DC42839938A651 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49C5F35D1872885600E24D00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C5F3641872885600E24D00 /* Cocoa.framework in Frameworks */,
+				A1821E8A293547B5ADA06A1C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49C5F3811872885700E24D00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C5F3871872885700E24D00 /* Cocoa.framework in Frameworks */,
+				49C5F3861872885700E24D00 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */ = {
+			isa = PBXGroup;
+			children = (
+				49B8AB89188CE33D00AE0BA2 /* SSBRestClient.h */,
+				49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */,
+			);
+			name = "HTTP Clients";
+			sourceTree = "<group>";
+		};
+		49C5F3571872885600E24D00 = {
+			isa = PBXGroup;
+			children = (
+				49C5F3691872885600E24D00 /* SSBFranchiseTool */,
+				49C5F38A1872885700E24D00 /* SSBFranchiseToolTests */,
+				49C5F3621872885600E24D00 /* Frameworks */,
+				49C5F3611872885600E24D00 /* Products */,
+				8F77560E27DC42839938A651 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		49C5F3611872885600E24D00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3601872885600E24D00 /* SSBFranchiseTool.app */,
+				49C5F3841872885700E24D00 /* SSBFranchiseToolTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49C5F3621872885600E24D00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3631872885600E24D00 /* Cocoa.framework */,
+				49C5F3851872885700E24D00 /* XCTest.framework */,
+				49C5F3651872885600E24D00 /* Other Frameworks */,
+				079AE16BAE09411887F321F5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49C5F3651872885600E24D00 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3661872885600E24D00 /* AppKit.framework */,
+				49C5F3671872885600E24D00 /* CoreData.framework */,
+				49C5F3681872885600E24D00 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		49C5F3691872885600E24D00 /* SSBFranchiseTool */ = {
+			isa = PBXGroup;
+			children = (
+				49E83178189F34D3009F5D03 /* Model */,
+				49CEFD6A188216A70015F35D /* Windows */,
+				49CEFD6B188216B50015F35D /* Views */,
+				49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */,
+				49CEFD6C188227830015F35D /* Document */,
+				49CEFD69188216860015F35D /* Images */,
+				49C5F36A1872885600E24D00 /* Supporting Files */,
+				49C5F37E1872885700E24D00 /* Images.xcassets */,
+			);
+			path = SSBFranchiseTool;
+			sourceTree = "<group>";
+		};
+		49C5F36A1872885600E24D00 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F37B1872885700E24D00 /* MainMenu.xib */,
+				49C5F36B1872885600E24D00 /* SSBFranchiseTool-Info.plist */,
+				49C5F36C1872885600E24D00 /* InfoPlist.strings */,
+				49C5F36F1872885700E24D00 /* main.m */,
+				49C5F3711872885700E24D00 /* SSBFranchiseTool-Prefix.pch */,
+				49C5F3721872885700E24D00 /* Credits.rtf */,
+				49B8AB85188CD2C100AE0BA2 /* SSBConstants.h */,
+				49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49C5F38A1872885700E24D00 /* SSBFranchiseToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3901872885700E24D00 /* SSBFranchiseToolTests.m */,
+				49C5F38B1872885700E24D00 /* Supporting Files */,
+			);
+			path = SSBFranchiseToolTests;
+			sourceTree = "<group>";
+		};
+		49C5F38B1872885700E24D00 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F38C1872885700E24D00 /* SSBFranchiseToolTests-Info.plist */,
+				49C5F38D1872885700E24D00 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49CEFD69188216860015F35D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				493C4C0818AF18C600601FF1 /* lineupsicon.jpg */,
+				493C4C0918AF18C600601FF1 /* yearicon.png */,
+				493C4C0A18AF18C600601FF1 /* salaryicon.png */,
+				493C4C0B18AF18C600601FF1 /* salarycapicon.png */,
+				493C4C0C18AF18C600601FF1 /* rulesicon.png */,
+				49C5F3A0187296CD00E24D00 /* ssb.icns */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		49CEFD6A188216A70015F35D /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				49CEFD561881B4520015F35D /* SSBMainWindowController.h */,
+				49CEFD571881B4520015F35D /* SSBMainWindowController.m */,
+				49CEFD581881B4520015F35D /* SSBMainWindow.xib */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		49CEFD6B188216B50015F35D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49F1760D1880E50000925BAD /* SSBRulesViewController.h */,
+				49F1760E1880E50000925BAD /* SSBRulesViewController.m */,
+				49F1760F1880E50000925BAD /* SSBRulesView.xib */,
+				49B8AB80188CCCA000AE0BA2 /* SSBLineupsViewController.h */,
+				49B8AB81188CCCA000AE0BA2 /* SSBLineupsViewController.m */,
+				49B8AB82188CCCA000AE0BA2 /* SSBLineupsView.xib */,
+				499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */,
+				499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */,
+				499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */,
+				4929654B189DEAA00035C5D3 /* SSBFighterSalaryViewController.h */,
+				4929654C189DEAA00035C5D3 /* SSBFighterSalaryViewController.m */,
+				4929654D189DEAA00035C5D3 /* SSBFighterSalaryView.xib */,
+				493C4C1218AF2C8700601FF1 /* SSBYearViewController.h */,
+				493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */,
+				493C4C1418AF2C8700601FF1 /* SSBYearView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		49CEFD6C188227830015F35D /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				49C5F3751872885700E24D00 /* SSBDocument.h */,
+				49C5F3761872885700E24D00 /* SSBDocument.m */,
+				49C5F3781872885700E24D00 /* SSBDocument.xib */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
+		49E83178189F34D3009F5D03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49E83179189F34F6009F5D03 /* SSBFighter.h */,
+				49E8317A189F34F6009F5D03 /* SSBFighter.m */,
+				4913F57118B9ABAC001C9C37 /* SSBYear.h */,
+				4913F57218B9ABAC001C9C37 /* SSBYear.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49C5F35F1872885600E24D00 /* SSBFranchiseTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49C5F3941872885700E24D00 /* Build configuration list for PBXNativeTarget "SSBFranchiseTool" */;
+			buildPhases = (
+				B6DF2E3E51394786AB47E7AE /* Check Pods Manifest.lock */,
+				49C5F35C1872885600E24D00 /* Sources */,
+				49C5F35D1872885600E24D00 /* Frameworks */,
+				49C5F35E1872885600E24D00 /* Resources */,
+				959BC9EA8CA4403E8CA983AA /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSBFranchiseTool;
+			productName = SSBFranchiseTool;
+			productReference = 49C5F3601872885600E24D00 /* SSBFranchiseTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49C5F3831872885700E24D00 /* SSBFranchiseToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49C5F3971872885700E24D00 /* Build configuration list for PBXNativeTarget "SSBFranchiseToolTests" */;
+			buildPhases = (
+				49C5F3801872885700E24D00 /* Sources */,
+				49C5F3811872885700E24D00 /* Frameworks */,
+				49C5F3821872885700E24D00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49C5F3891872885700E24D00 /* PBXTargetDependency */,
+			);
+			name = SSBFranchiseToolTests;
+			productName = SSBFranchiseToolTests;
+			productReference = 49C5F3841872885700E24D00 /* SSBFranchiseToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49C5F3581872885600E24D00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SSB;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Thomas Forzaglia";
+				TargetAttributes = {
+					49C5F3831872885700E24D00 = {
+						TestTargetID = 49C5F35F1872885600E24D00;
+					};
+				};
+			};
+			buildConfigurationList = 49C5F35B1872885600E24D00 /* Build configuration list for PBXProject "SSBFranchiseTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49C5F3571872885600E24D00;
+			productRefGroup = 49C5F3611872885600E24D00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49C5F35F1872885600E24D00 /* SSBFranchiseTool */,
+				49C5F3831872885700E24D00 /* SSBFranchiseToolTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49C5F35E1872885600E24D00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49B8AB84188CCCA000AE0BA2 /* SSBLineupsView.xib in Resources */,
+				49C5F37A1872885700E24D00 /* SSBDocument.xib in Resources */,
+				49C5F37F1872885700E24D00 /* Images.xcassets in Resources */,
+				493C4C0D18AF18C600601FF1 /* lineupsicon.jpg in Resources */,
+				493C4C1118AF18C600601FF1 /* rulesicon.png in Resources */,
+				493C4C0F18AF18C600601FF1 /* salaryicon.png in Resources */,
+				493C4C1018AF18C600601FF1 /* salarycapicon.png in Resources */,
+				49CEFD5A1881B4520015F35D /* SSBMainWindow.xib in Resources */,
+				49C5F36E1872885600E24D00 /* InfoPlist.strings in Resources */,
+				499EFCA51894C8CC00CE9979 /* SSBSalaryCapView.xib in Resources */,
+				49C5F3A1187296CD00E24D00 /* ssb.icns in Resources */,
+				4929654F189DEAA00035C5D3 /* SSBFighterSalaryView.xib in Resources */,
+				493C4C1618AF2C8700601FF1 /* SSBYearView.xib in Resources */,
+				49F176111880E50100925BAD /* SSBRulesView.xib in Resources */,
+				493C4C0E18AF18C600601FF1 /* yearicon.png in Resources */,
+				49C5F3741872885700E24D00 /* Credits.rtf in Resources */,
+				49C5F37D1872885700E24D00 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49C5F3821872885700E24D00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C5F38F1872885700E24D00 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		959BC9EA8CA4403E8CA983AA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6DF2E3E51394786AB47E7AE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49C5F35C1872885600E24D00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C5F3701872885700E24D00 /* main.m in Sources */,
+				49F176101880E50100925BAD /* SSBRulesViewController.m in Sources */,
+				49C5F3771872885700E24D00 /* SSBDocument.m in Sources */,
+				49B8AB8B188CE33D00AE0BA2 /* SSBRestClient.m in Sources */,
+				49E8317B189F34F6009F5D03 /* SSBFighter.m in Sources */,
+				49B8AB83188CCCA000AE0BA2 /* SSBLineupsViewController.m in Sources */,
+				4929654E189DEAA00035C5D3 /* SSBFighterSalaryViewController.m in Sources */,
+				49B8AB87188CD2C100AE0BA2 /* SSBConstants.m in Sources */,
+				499EFCA41894C8CC00CE9979 /* SSBSalaryCapViewController.m in Sources */,
+				4913F57318B9ABAC001C9C37 /* SSBYear.m in Sources */,
+				49CEFD591881B4520015F35D /* SSBMainWindowController.m in Sources */,
+				493C4C1518AF2C8700601FF1 /* SSBYearViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49C5F3801872885700E24D00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49C5F3911872885700E24D00 /* SSBFranchiseToolTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49C5F3891872885700E24D00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49C5F35F1872885600E24D00 /* SSBFranchiseTool */;
+			targetProxy = 49C5F3881872885700E24D00 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		49C5F36C1872885600E24D00 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5F36D1872885600E24D00 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		49C5F3721872885700E24D00 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5F3731872885700E24D00 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		49C5F3781872885700E24D00 /* SSBDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5F3791872885700E24D00 /* Base */,
+			);
+			name = SSBDocument.xib;
+			sourceTree = "<group>";
+		};
+		49C5F37B1872885700E24D00 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5F37C1872885700E24D00 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		49C5F38D1872885700E24D00 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5F38E1872885700E24D00 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49C5F3921872885700E24D00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		49C5F3931872885700E24D00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		49C5F3951872885700E24D00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F77560E27DC42839938A651 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSBFranchiseTool/SSBFranchiseTool-Prefix.pch";
+				INFOPLIST_FILE = "SSBFranchiseTool/SSBFranchiseTool-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		49C5F3961872885700E24D00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F77560E27DC42839938A651 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSBFranchiseTool/SSBFranchiseTool-Prefix.pch";
+				INFOPLIST_FILE = "SSBFranchiseTool/SSBFranchiseTool-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		49C5F3981872885700E24D00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSBFranchiseTool.app/Contents/MacOS/SSBFranchiseTool";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSBFranchiseTool/SSBFranchiseTool-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SSBFranchiseToolTests/SSBFranchiseToolTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		49C5F3991872885700E24D00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSBFranchiseTool.app/Contents/MacOS/SSBFranchiseTool";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSBFranchiseTool/SSBFranchiseTool-Prefix.pch";
+				INFOPLIST_FILE = "SSBFranchiseToolTests/SSBFranchiseToolTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49C5F35B1872885600E24D00 /* Build configuration list for PBXProject "SSBFranchiseTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C5F3921872885700E24D00 /* Debug */,
+				49C5F3931872885700E24D00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49C5F3941872885700E24D00 /* Build configuration list for PBXNativeTarget "SSBFranchiseTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C5F3951872885700E24D00 /* Debug */,
+				49C5F3961872885700E24D00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49C5F3971872885700E24D00 /* Build configuration list for PBXNativeTarget "SSBFranchiseToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C5F3981872885700E24D00 /* Debug */,
+				49C5F3991872885700E24D00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49C5F3581872885600E24D00 /* Project object */;
+}
