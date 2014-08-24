@@ -133,13 +133,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */ = {
+		49B8AB88188CE2EC00AE0BA2 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
 				49B8AB89188CE33D00AE0BA2 /* SSBRestClient.h */,
 				49B8AB8A188CE33D00AE0BA2 /* SSBRestClient.m */,
 			);
-			name = "HTTP Clients";
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		49BFE6CA19A98AC1003EAEE1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				49B8AB85188CD2C100AE0BA2 /* SSBConstants.h */,
+				49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		49C5F3571872885600E24D00 = {
@@ -186,11 +195,12 @@
 		49C5F3691872885600E24D00 /* SSBFranchiseTool */ = {
 			isa = PBXGroup;
 			children = (
-				49E83178189F34D3009F5D03 /* Model */,
-				49CEFD6A188216A70015F35D /* Windows */,
-				49CEFD6B188216B50015F35D /* Views */,
-				49B8AB88188CE2EC00AE0BA2 /* HTTP Clients */,
+				49B8AB88188CE2EC00AE0BA2 /* Clients */,
+				49BFE6CA19A98AC1003EAEE1 /* Constants */,
 				49CEFD6C188227830015F35D /* Document */,
+				49E83178189F34D3009F5D03 /* Model */,
+				49CEFD6B188216B50015F35D /* Views */,
+				49CEFD6A188216A70015F35D /* Windows */,
 				49CEFD69188216860015F35D /* Images */,
 				49C5F36A1872885600E24D00 /* Supporting Files */,
 				49C5F37E1872885700E24D00 /* Images.xcassets */,
@@ -201,14 +211,11 @@
 		49C5F36A1872885600E24D00 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				49C5F37B1872885700E24D00 /* MainMenu.xib */,
 				49C5F36B1872885600E24D00 /* SSBFranchiseTool-Info.plist */,
 				49C5F36C1872885600E24D00 /* InfoPlist.strings */,
 				49C5F36F1872885700E24D00 /* main.m */,
 				49C5F3711872885700E24D00 /* SSBFranchiseTool-Prefix.pch */,
 				49C5F3721872885700E24D00 /* Credits.rtf */,
-				49B8AB85188CD2C100AE0BA2 /* SSBConstants.h */,
-				49B8AB86188CD2C100AE0BA2 /* SSBConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 		49CEFD6A188216A70015F35D /* Windows */ = {
 			isa = PBXGroup;
 			children = (
+				49C5F37B1872885700E24D00 /* MainMenu.xib */,
 				49CEFD561881B4520015F35D /* SSBMainWindowController.h */,
 				49CEFD571881B4520015F35D /* SSBMainWindowController.m */,
 				49CEFD581881B4520015F35D /* SSBMainWindow.xib */,

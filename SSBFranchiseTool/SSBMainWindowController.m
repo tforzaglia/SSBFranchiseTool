@@ -6,74 +6,50 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
+#import "SSBFighterSalaryViewController.h"
+#import "SSBLineupsViewController.h"
 #import "SSBMainWindowController.h"
 #import "SSBRulesViewController.h"
-#import "SSBLineupsViewController.h"
 #import "SSBSalaryCapViewController.h"
-#import "SSBFighterSalaryViewController.h"
 #import "SSBYearViewController.h"
-
-@interface SSBMainWindowController ()
-
-@end
 
 @implementation SSBMainWindowController
 
-@synthesize rulesToolbarItem = _rulesToolbarItem;
-@synthesize salaryToolbarItem = _salaryToolbarItem;
-@synthesize ownerSalaryCapToolbarItem = _ownerSalaryCapToolbarItem;
-@synthesize lineupsToolbarItem = _lineupsToolbarItem;
-@synthesize yearsToolbarItem = _yearsToolbarItem;
-
-@synthesize rulesViewController = _rulesViewController;
-@synthesize fighterSalaryViewController = _fighterSalaryViewController;
-@synthesize salaryCapViewController = _salaryCapViewController;
-@synthesize lineupsViewController = _lineupsViewController;
-@synthesize yearViewController = _yearViewController;
-
 - (id)init {
-    
     self = [super initWithWindowNibName:@"SSBMainWindow"];
     return self;
 }
 
 - (void)windowDidLoad {
-    
     [super windowDidLoad];
     [self.window.contentView setAutoresizesSubviews:YES];
-    [_rulesToolbarItem setEnabled:YES];
-    [_salaryToolbarItem setEnabled:YES];
-    [_ownerSalaryCapToolbarItem setEnabled:YES];
-    [_lineupsToolbarItem setEnabled:YES];
-    [_yearsToolbarItem setEnabled:YES];
-    
+    [self.rulesToolbarItem setEnabled:YES];
+    [self.salaryToolbarItem setEnabled:YES];
+    [self.ownerSalaryCapToolbarItem setEnabled:YES];
+    [self.lineupsToolbarItem setEnabled:YES];
+    [self.yearsToolbarItem setEnabled:YES];
     [self showRulesView:self];
 }
 
 - (IBAction)showRulesView:(id)sender {
-    
-    self.window.contentView = _rulesViewController.view;
+    self.window.contentView = self.rulesViewController.view;
 }
 
 - (IBAction)showFighterSalaryView:(id)sender {
-    
-    self.window.contentView = _fighterSalaryViewController.view;
+    self.window.contentView = self.fighterSalaryViewController.view;
 }
 
 - (IBAction)showSalaryCapView:(id)sender {
-    
-    [_salaryCapViewController fillSalaryTable];
-    self.window.contentView = _salaryCapViewController.view;
+    [self.salaryCapViewController fillSalaryTable];
+    self.window.contentView = self.salaryCapViewController.view;
 }
 
 - (IBAction)showLineupsView:(id)sender {
-    
-    self.window.contentView = _lineupsViewController.view;
+    self.window.contentView = self.lineupsViewController.view;
 }
 
 - (IBAction)showYearView:(id)sender {
-    
-    self.window.contentView = _yearViewController.view;
+    self.window.contentView = self.yearViewController.view;
 }
 
 @end

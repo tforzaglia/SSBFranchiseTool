@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
-#import "SSBRestClient.h"
 #import "AFHTTPRequestOperationManager.h"
+
 #import "SSBFighter.h"
+#import "SSBRestClient.h"
 #import "SSBYear.h"
 
 @implementation SSBRestClient

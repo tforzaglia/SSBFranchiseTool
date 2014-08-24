@@ -10,8 +10,4 @@
 
 @implementation SSBYear
 
-@synthesize matches = _matches;
-@synthesize fighterWinners = _fighterWinners;
-@synthesize ownerWinners = _ownerWinners;
-
 @end

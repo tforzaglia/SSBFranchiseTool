@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
-#import "SSBFighterSalaryViewController.h"
 #import "SSBConstants.h"
+#import "SSBFighterSalaryViewController.h"
 #import "SSBRestClient.h"
 
 @interface SSBFighterSalaryViewController ()
@@ -22,42 +22,28 @@
 
 @implementation SSBFighterSalaryViewController
 
-@synthesize yearSelectionButton = _yearSelectionButton;
-@synthesize tableView = _tableView;
-@synthesize fighterColumn = _fighterColumn;
-@synthesize ownerColumn = _ownerColumn;
-@synthesize salaryColumn = _salaryColumn;
-@synthesize isRestrictedColumn = _isRestrictedColumn;
-@synthesize restrictedYearColumn = _restrictedYearColumn;
-
-@synthesize fighterNameArray = _fighterNameArray;
-@synthesize fighterObjectArray = _fighterObjectArray;
-@synthesize yearNumber = _yearNumber;
-
 - (id)init {
-    
     return [super initWithNibName:@"SSBFighterSalaryView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    
     self = [super init];
 
-    _fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Bowser", @"Captain Falcon", @"Diddy Kong", @"Donkey Kong", @"Falco", @"Fox", @"Ganondorf", @"Ice Climbers", @"Ike", @"Jigglypuff", @"King Dedede", @"Kirby", @"Link" ,
+    self.fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Bowser", @"Captain Falcon", @"Diddy Kong", @"Donkey Kong", @"Falco", @"Fox", @"Ganondorf", @"Ice Climbers", @"Ike", @"Jigglypuff", @"King Dedede", @"Kirby", @"Link" ,
         @"Lucario", @"Lucas", @"Luigi", @"Mario", @"Marth", @"Metaknight", @"Mr Game and Watch", @"Olimar", @"Ness",
         @"Pikachu", @"Pit", @"Pokemon Trainer", @"Peach", @"ROB", @"Samus", @"Snake", @"Sonic", @"Toon Link",
         @"Wario", @"Wolf", @"Yoshi", @"Zelda", nil];
     
     // set to year 1 by default
-    _yearNumber = @"1";
+    self.yearNumber = @"1";
     
-    _fighterObjectArray = [[NSMutableArray alloc] init];
+    self.fighterObjectArray = [[NSMutableArray alloc] init];
     SSBRestClient *client = [[SSBRestClient alloc] init];
 
     // make rest calls for each fighter and get them into separate SSBFighter objects
-    for (int i = 0; i < [_fighterNameArray count]; i++) {
-        [client getFighterInfoByName:[_fighterNameArray objectAtIndex:i] withBlock:^void(SSBFighter *fighter) {
-            [_fighterObjectArray addObject:fighter];
+    for (int i = 0; i < [self.fighterNameArray count]; i++) {
+        [client getFighterInfoByName:[self.fighterNameArray objectAtIndex:i] withBlock:^void(SSBFighter *fighter) {
+            [self.fighterObjectArray addObject:fighter];
         }];
     }
 
@@ -65,33 +51,30 @@
 }
 
 - (void)awakeFromNib {
-    
-    [_yearSelectionButton removeAllItems];
+    [self.yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
     for (int i = 1; i <= NumberOfYears; i++) {
         NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
         [yearStrings addObject:yearString];
     }
     
-    [_yearSelectionButton addItemsWithTitles:yearStrings];
+    [self.yearSelectionButton addItemsWithTitles:yearStrings];
 }
 
 - (IBAction)loadSalaryInfo:(id)sender {
-    
     // get the selected year from the pop up button
-    NSString *selectedYear = [[_yearSelectionButton selectedItem] title];
+    NSString *selectedYear = [[self.yearSelectionButton selectedItem] title];
     
     // remove the Year text to get the number to pass to the web service
-    _yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
+    self.yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
     
     // fill the table with different info based on the year
-    [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 
 - (SSBFighter *)searchArrayForFighterByName:(NSString *)name {
-    
-    for (SSBFighter *fighter in _fighterObjectArray) {
+    for (SSBFighter *fighter in self.fighterObjectArray) {
         if ([name isEqualToString:[fighter name]]) {
             return fighter;
         }
@@ -105,31 +88,31 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
     
     NSInteger count = 0;
-    if (_fighterNameArray) {
-        count = [_fighterNameArray count];
+    if (self.fighterNameArray) {
+        count = [self.fighterNameArray count];
     }
     return count;
 }
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
-    NSInteger year = [_yearNumber integerValue];
-    NSString *currentName = [_fighterNameArray objectAtIndex:row];
+    NSInteger year = [self.yearNumber integerValue];
+    NSString *currentName = [self.fighterNameArray objectAtIndex:row];
     SSBFighter *currentFighter =  [self searchArrayForFighterByName:currentName];
     
-    if (tableColumn == _fighterColumn) {
-        return [_fighterNameArray objectAtIndex:row];
+    if (tableColumn == self.fighterColumn) {
+        return [self.fighterNameArray objectAtIndex:row];
     }
-    else if (tableColumn == _ownerColumn) {
+    else if (tableColumn == self.ownerColumn) {
         return [[currentFighter ownersThroughTheYears] objectAtIndex:year - 1];
     }
-    else if (tableColumn == _salaryColumn) {
+    else if (tableColumn == self.salaryColumn) {
         return [[currentFighter salariesThroughTheYears] objectAtIndex:year - 1];
     }
-    else if (tableColumn == _isRestrictedColumn) {
+    else if (tableColumn == self.isRestrictedColumn) {
         return [currentFighter isRestricted];
     }
-    else if (tableColumn == _restrictedYearColumn) {
+    else if (tableColumn == self.restrictedYearColumn) {
         return [NSNumber numberWithLong:[currentFighter restrictedYear]];
     }
     else
@@ -137,72 +120,70 @@
 }
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
-    
-    NSString *name = [_fighterNameArray objectAtIndex:row];
-    
+    NSString *name = [self.fighterNameArray objectAtIndex:row];
     SSBRestClient *client = [[SSBRestClient alloc] init];
     
     // edit was made in the salasry column
-    if (column == _salaryColumn) {
+    if (column == self.salaryColumn) {
         NSString *salary =  anObject;
-        [client updateSalary:salary forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
+        [client updateSalary:salary forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {
                 [self presentError:error];
             }
             else {
-                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [_fighterObjectArray addObject:fighter];
+                    [self.fighterObjectArray addObject:fighter];
                 }];
-                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
     // edit was made in the owner column
-    else if (column == _ownerColumn) {
+    else if (column == self.ownerColumn) {
         NSString *owner =  anObject;
-        [client updateOwner:owner forFighter:name andYear:_yearNumber withBlock:^void(NSError *error) {
+        [client updateOwner:owner forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {                
                 [self presentError:error];
             }
             else {
-                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [_fighterObjectArray addObject:fighter];
+                    [self.fighterObjectArray addObject:fighter];
                 }];
-                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
     // edit was made in the is restricted column
-    else if (column == _isRestrictedColumn) {
+    else if (column == self.isRestrictedColumn) {
         NSString *restrictedStatus = anObject;
         [client updateRestrictedStatus:restrictedStatus forFighter:name withBlock:^void(NSError *error) {
             if (error) {
                 [self presentError:error];
             }
             else {
-                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [_fighterObjectArray addObject:fighter];
+                    [self.fighterObjectArray addObject:fighter];
                 }];
-                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
     // edit was made in the restricted year column
-    else if (column == _restrictedYearColumn) {
+    else if (column == self.restrictedYearColumn) {
         NSInteger restrictedYear = [anObject intValue];
         [client updateRestrictedYear:restrictedYear forFighter:name withBlock:^void(NSError *error) {
             if (error) {
                 [self presentError:error];
             }
             else {
-                [_fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [_fighterObjectArray addObject:fighter];
+                    [self.fighterObjectArray addObject:fighter];
                 }];
-                [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
@@ -211,11 +192,10 @@
 }
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
-    SSBFighter *fighter = [self searchArrayForFighterByName:[_fighterNameArray objectAtIndex:row]];
+    SSBFighter *fighter = [self searchArrayForFighterByName:[self.fighterNameArray objectAtIndex:row]];
     NSTextFieldCell *textFieldCell = (NSTextFieldCell *)cell;
     
-    if (tableColumn == _fighterColumn) {
+    if (tableColumn == self.fighterColumn) {
         switch ([fighter restrictedYear]) {
             case 0:
                 [textFieldCell setTextColor:[NSColor blackColor]];
