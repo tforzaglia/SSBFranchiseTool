@@ -12,9 +12,9 @@
 
 @interface SSBYearViewController ()
 
-@property NSArray *matchNumbers;
-@property NSArray *fighterWinners;
-@property NSArray *ownerWinners;
+@property NSMutableArray *matchNumbers;
+@property NSMutableArray *fighterWinners;
+@property NSMutableArray *ownerWinners;
 
 @end
 
@@ -27,9 +27,9 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     
-    self.matchNumbers = [[NSArray alloc] init];
-    self.fighterWinners = [[NSArray alloc] init];
-    self.ownerWinners = [[NSArray alloc] init];
+    self.matchNumbers = [[NSMutableArray alloc] init];
+    self.fighterWinners = [[NSMutableArray alloc] init];
+    self.ownerWinners = [[NSMutableArray alloc] init];
     
     return [super initWithNibName:@"SSBYearView" bundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -54,9 +54,9 @@
     
     SSBRestClient *client = [[SSBRestClient alloc] init];
     [client getMatchResultsForYear:yearNumber withBlock:^void(SSBYear *yearObject) {
-        self.matchNumbers = [yearObject matches];
-        self.fighterWinners = [yearObject fighterWinners];
-        self.ownerWinners = [yearObject ownerWinners];
+        self.matchNumbers = [[yearObject matches] mutableCopy];
+        self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
+        self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
         
         [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
