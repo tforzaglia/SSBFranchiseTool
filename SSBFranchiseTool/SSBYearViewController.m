@@ -15,6 +15,7 @@
 @property NSMutableArray *matchNumbers;
 @property NSMutableArray *fighterWinners;
 @property NSMutableArray *ownerWinners;
+@property NSString *yearNumber;
 
 @end
 
@@ -31,13 +32,15 @@
     self.fighterWinners = [[NSMutableArray alloc] init];
     self.ownerWinners = [[NSMutableArray alloc] init];
     
+    self.yearNumber = @"1";
+    
     return [super initWithNibName:@"SSBYearView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
 - (void)awakeFromNib {
     [self.yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= NumberOfYears; i++) {
+    for (int i = 1; i <= SSBNumberOfYears; i++) {
         NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
         [yearStrings addObject:yearString];
     }
@@ -50,10 +53,10 @@
     NSString *selectedYear = [[self.yearSelectionButton selectedItem] title];
     
     // remove the Year text to get the number to pass to the web service
-    NSString *yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
+   self.yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
     
     SSBRestClient *client = [[SSBRestClient alloc] init];
-    [client getMatchResultsForYear:yearNumber withBlock:^void(SSBYear *yearObject) {
+    [client getMatchResultsForYear:self.yearNumber withBlock:^void(SSBYear *yearObject) {
         self.matchNumbers = [[yearObject matches] mutableCopy];
         self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
         self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
@@ -87,6 +90,45 @@
 }
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
+    SSBRestClient *client = [[SSBRestClient alloc] init];
+
+    // edit was made in the fighter column
+    if (column == self.fighterColumn) {
+        NSString *fighterName =  anObject;
+        [client updateWinningFIghter:fighterName forMatch:row + 1 andYear:self.yearNumber withBlock:^void(NSError *error) {
+            if (error) {
+                [self presentError:error];
+            }
+            else {
+                [client getMatchResultsForYear:self.yearNumber withBlock:^void(SSBYear *yearObject) {
+                    self.matchNumbers = [[yearObject matches] mutableCopy];
+                    self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
+                    self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
+                    
+                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                }];
+            }
+        }];
+    }
+    // edit was made in the owner column
+    else if (column == self.ownerColumn) {
+        NSString *ownerName =  anObject;
+        [client updateWinningOwner:ownerName forMatch:row + 1 andYear:self.yearNumber withBlock:^void(NSError *error) {
+            if (error) {
+                [self presentError:error];
+            }
+            else {
+                [client getMatchResultsForYear:self.yearNumber withBlock:^void(SSBYear *yearObject) {
+                    self.matchNumbers = [[yearObject matches] mutableCopy];
+                    self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
+                    self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
+                    
+                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                }];
+            }
+        }];
+    }
+    
     [tv reloadData];
 }
 

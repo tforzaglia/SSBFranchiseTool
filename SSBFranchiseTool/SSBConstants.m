@@ -8,4 +8,4 @@
 
 #import "SSBConstants.h"
 
-NSInteger const NumberOfYears = 6;
+NSInteger const SSBNumberOfYears = 6;

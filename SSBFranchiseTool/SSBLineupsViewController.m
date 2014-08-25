@@ -39,7 +39,7 @@
 - (void)awakeFromNib {
     [self.yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= NumberOfYears; i++) {
+    for (int i = 1; i <= SSBNumberOfYears; i++) {
         NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
         [yearStrings addObject:yearString];
     }

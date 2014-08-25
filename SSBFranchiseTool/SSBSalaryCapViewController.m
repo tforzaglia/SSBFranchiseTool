@@ -39,7 +39,7 @@
     self.tSalaryRemainingArray = [[NSArray alloc] init];
     self.pSalaryRemainingArray = [[NSArray alloc] init];
     
-    for (int i = 1; i <= NumberOfYears; i++) {
+    for (int i = 1; i <= SSBNumberOfYears; i++) {
         [self.yearArray addObject:[NSNumber numberWithInt:i]];
     }
     

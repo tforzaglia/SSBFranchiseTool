@@ -22,5 +22,7 @@
 - (void)updateOwner:(NSString *)owner forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 - (void)updateRestrictedStatus:(NSString *)isRestricted forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block;
 - (void)updateRestrictedYear:(NSInteger)restrictedYear forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block;
+- (void)updateWinningFIghter:(NSString *)winningFighter forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
+- (void)updateWinningOwner:(NSString *)winningOwner forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 
 @end

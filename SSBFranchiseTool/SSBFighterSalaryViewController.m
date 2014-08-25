@@ -53,7 +53,7 @@
 - (void)awakeFromNib {
     [self.yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= NumberOfYears; i++) {
+    for (int i = 1; i <= SSBNumberOfYears; i++) {
         NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
         [yearStrings addObject:yearString];
     }
@@ -123,7 +123,7 @@
     NSString *name = [self.fighterNameArray objectAtIndex:row];
     SSBRestClient *client = [[SSBRestClient alloc] init];
     
-    // edit was made in the salasry column
+    // edit was made in the salary column
     if (column == self.salaryColumn) {
         NSString *salary =  anObject;
         [client updateSalary:salary forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {

@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSInteger const NumberOfYears;
+extern NSInteger const SSBNumberOfYears;
 

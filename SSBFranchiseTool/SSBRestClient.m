@@ -17,7 +17,6 @@
 #pragma mark Getter Rest Calls
 
 - (void)getLineupsForYear:(NSString *)year withBlock:(void (^)(NSArray *lineups))block {
-    
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/getLineup/%@", year];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -45,7 +44,6 @@
 }
 
 - (void)getOwnerSalariesWithBlock:(void (^)(NSArray *, NSArray *, NSArray *))block {
-    
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/getAllSalary"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -73,7 +71,6 @@
 }
 
 - (void)getFighterInfoByName:(NSString *)name withBlock:(void (^)(SSBFighter *fighter))block {
-    
     NSString *encodedName = [name stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/get/%@", encodedName];
@@ -102,7 +99,6 @@
 }
 
 - (void)getMatchResultsForYear:(NSString *)year withBlock:(void (^)(SSBYear *))block {
-    
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/year/get/%@", year];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
@@ -126,7 +122,6 @@
 #pragma mark Update Rest Calls
 
 - (void)updateSalary:(NSString *)salary forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
-    
     NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/updateSalary/%@/%@/%@/", year, encodedName, salary];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -143,7 +138,6 @@
 }
 
 - (void)updateOwner:(NSString *)owner forFighter:(NSString *)fighterName andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
-    
     NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/updateOwner/%@/%@/%@", year, encodedName, owner];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -160,7 +154,6 @@
 }
 
 - (void)updateRestrictedStatus:(NSString *)isRestricted forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block {
-    
     NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/setRestrictedStatus/%@/%@", encodedName, isRestricted];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -176,10 +169,40 @@
     }];
 }
 
--(void)updateRestrictedYear:(NSInteger)restrictedYear forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block {
-    
+- (void)updateRestrictedYear:(NSInteger)restrictedYear forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block {
     NSString *encodedName = [fighterName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/fighter/setRestrictedYear/%@/%ld", encodedName, (long)restrictedYear];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        block(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(error);
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)updateWinningFIghter:(NSString *)winningFighter forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
+    NSString *encodedName = [winningFighter stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/year/updateWinningFighter/%@/%ld/%@", year, matchNumber, encodedName ];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        block(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(error);
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void)updateWinningOwner:(NSString *)winningOwner forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/year/updateWinningOwner/%@/%ld/%@", year, matchNumber, winningOwner ];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     
