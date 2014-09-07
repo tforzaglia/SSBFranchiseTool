@@ -12,10 +12,10 @@
 
 @interface SSBLineupsViewController ()
 
-@property NSMutableArray *numberArray;
-@property NSMutableArray *aLineupArray;
-@property NSMutableArray *tLineupArray;
-@property NSMutableArray *pLineupArray;
+@property (nonatomic, strong) NSMutableArray *numberArray;
+@property (nonatomic, strong) NSMutableArray *aLineupArray;
+@property (nonatomic, strong) NSMutableArray *tLineupArray;
+@property (nonatomic, strong) NSMutableArray *pLineupArray;
 
 @end
 
@@ -54,13 +54,23 @@
     // remove the Year text to get the number to pass to the web service
     NSString *yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
     
+    [self.aLineupArray removeAllObjects];
+    [self.tLineupArray removeAllObjects];
+    [self.pLineupArray removeAllObjects];
+    
     SSBRestClient *client = [[SSBRestClient alloc] init];
     [client getLineupsForYear:yearNumber withBlock:^void(NSArray *lineups) {
-        self.aLineupArray = [[[lineups objectAtIndex:0] componentsSeparatedByString:@","] mutableCopy];
-        self.tLineupArray = [[[lineups objectAtIndex:1] componentsSeparatedByString:@","] mutableCopy];
-        self.pLineupArray = [[[lineups objectAtIndex:2] componentsSeparatedByString:@","] mutableCopy];
+        if (![lineups[0] isEqual:[NSNull null]]) {
+            self.aLineupArray = [[lineups[0] componentsSeparatedByString:@","] mutableCopy];
+            self.tLineupArray = [[lineups[1] componentsSeparatedByString:@","] mutableCopy];
+            self.pLineupArray = [[lineups[2] componentsSeparatedByString:@","] mutableCopy];
         
-        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+        else {
+            NSLog(@"No lineups found for that year");
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
     }];
 }
 
@@ -68,8 +78,8 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {
     NSInteger count = 0;
-    if (self.pLineupArray) {
-        count = [self.pLineupArray count];
+    if (self.numberArray) {
+        count = [self.numberArray count];
     }
     return count;
 }
@@ -80,13 +90,22 @@
         return [self.numberArray objectAtIndex:row];
     }
     else if (tableColumn == self.aColumn) {
-        return [self.aLineupArray objectAtIndex:row];
+        if ([self.aLineupArray count] == 0) {
+            return @"";
+        }
+        return self.aLineupArray[row];
     }
     else if (tableColumn == self.tColumn) {
-        return [self.tLineupArray objectAtIndex:row];
+        if ([self.tLineupArray count] == 0) {
+            return @"";
+        }
+        return self.tLineupArray[row];
     }
     else if (tableColumn == self.pColumn) {
-        return [self.pLineupArray objectAtIndex:row];
+        if ([self.pLineupArray count] == 0) {
+            return @"";
+        }
+        return self.pLineupArray[row];
     }
     else
         return @"";
