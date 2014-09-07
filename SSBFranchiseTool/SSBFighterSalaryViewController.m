@@ -134,8 +134,8 @@
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
+                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
-                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
@@ -150,8 +150,8 @@
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
+                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
-                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
@@ -166,8 +166,8 @@
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
+                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
-                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }
@@ -182,8 +182,8 @@
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
                 [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
+                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
-                [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             }
         }];
     }

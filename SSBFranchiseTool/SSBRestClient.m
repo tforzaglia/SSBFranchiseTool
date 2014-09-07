@@ -216,4 +216,19 @@
     }];
 }
 
+- (void)updateLineup:(NSString *)lineup forOwner:(NSString *)owner andYear:(NSString *)year withBlock:(void (^)(NSError *))block {
+    NSString *url = [[NSString alloc] initWithFormat:@"http://localhost:8080/ssb-web/rest/owner/updateLineup/%@/%@/%@", year, owner, lineup];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response Object: %@", responseObject);
+        block(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(error);
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 @end

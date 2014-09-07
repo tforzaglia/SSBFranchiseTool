@@ -12,10 +12,10 @@
 
 @interface SSBYearViewController ()
 
-@property NSMutableArray *matchNumbers;
-@property NSMutableArray *fighterWinners;
-@property NSMutableArray *ownerWinners;
-@property NSString *yearNumber;
+@property (nonatomic, strong) NSMutableArray *matchNumbers;
+@property (nonatomic, strong) NSMutableArray *fighterWinners;
+@property (nonatomic, strong) NSMutableArray *ownerWinners;
+@property (nonatomic, strong) NSString *yearNumber;
 
 @end
 
