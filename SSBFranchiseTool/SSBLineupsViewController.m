@@ -17,6 +17,11 @@
 @property (nonatomic, strong) NSMutableArray *tLineupArray;
 @property (nonatomic, strong) NSMutableArray *pLineupArray;
 
+- (IBAction)loadLineup:(id)sender;
+- (IBAction)updateLineup:(id)sender;
+
+- (void)fillLineupArraysWithBlankStrings;
+
 @end
 
 @implementation SSBLineupsViewController
@@ -68,10 +73,56 @@
             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
         else {
-            NSLog(@"No lineups found for that year");
+            [self fillLineupArraysWithBlankStrings];
             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
+}
+
+- (IBAction)updateLineup:(id)sender {
+    NSString *aLineup = [[self.aLineupArray valueForKey:@"description"] componentsJoinedByString:@","];
+    NSString *tLineup = [[self.tLineupArray valueForKey:@"description"] componentsJoinedByString:@","];
+    NSString *pLineup = [[self.pLineupArray valueForKey:@"description"] componentsJoinedByString:@","];
+    
+    // get the selected year from the pop up button
+    NSString *selectedYear = [[self.yearSelectionButton selectedItem] title];
+    
+    // remove the Year text to get the number to pass to the web service
+    NSString *yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
+    
+    SSBRestClient *client = [[SSBRestClient alloc] init];
+    [client updateLineup:aLineup forOwner:@"A" andYear:yearNumber withBlock:^void(NSError *error) {
+        if (error) {
+            [self presentError:error];
+        }
+        else {
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+    }];
+    [client updateLineup:tLineup forOwner:@"T" andYear:yearNumber withBlock:^void(NSError *error) {
+        if (error) {
+            [self presentError:error];
+        }
+        else {
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+    }];
+    [client updateLineup:pLineup forOwner:@"P" andYear:yearNumber withBlock:^void(NSError *error) {
+        if (error) {
+            [self presentError:error];
+        }
+        else {
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        }
+    }];
+}
+
+- (void)fillLineupArraysWithBlankStrings {
+    for (int i = 0; i < 11; i++) {
+        self.aLineupArray[i] = @"";
+        self.tLineupArray[i] = @"";
+        self.pLineupArray[i] = @"";
+    }
 }
 
 #pragma mark NSTableViewDataSource Protocol Methods
@@ -85,7 +136,6 @@
 }
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
     if (tableColumn == self.numberColumn) {
         return [self.numberArray objectAtIndex:row];
     }
@@ -112,6 +162,19 @@
 }
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
+    NSString *fighterName =  anObject;
+    if (column == self.aColumn) {
+        [self.aLineupArray replaceObjectAtIndex:row withObject:fighterName];
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    }
+    else if (column == self.tColumn) {
+        [self.tLineupArray replaceObjectAtIndex:row withObject:fighterName];
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    }
+    else if (column == self.pColumn) {
+        [self.pLineupArray replaceObjectAtIndex:row withObject:fighterName];
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    }
     [tv reloadData];
 }
 

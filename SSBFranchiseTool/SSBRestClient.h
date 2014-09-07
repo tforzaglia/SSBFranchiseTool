@@ -24,5 +24,6 @@
 - (void)updateRestrictedYear:(NSInteger)restrictedYear forFighter:(NSString *)fighterName withBlock:(void (^)(NSError *))block;
 - (void)updateWinningFIghter:(NSString *)winningFighter forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 - (void)updateWinningOwner:(NSString *)winningOwner forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
+- (void)updateLineup:(NSString *)lineup forOwner:(NSString *)owner andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 
 @end
