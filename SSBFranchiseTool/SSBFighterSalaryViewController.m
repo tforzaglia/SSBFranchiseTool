@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
-#import "SSBConstants.h"
 #import "SSBFighterSalaryViewController.h"
+#import "SSBManager.h"
 #import "SSBRestClient.h"
 
 @interface SSBFighterSalaryViewController ()
@@ -53,7 +53,7 @@
 - (void)awakeFromNib {
     [self.yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= SSBNumberOfYears; i++) {
+    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
         NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
         [yearStrings addObject:yearString];
     }
@@ -121,18 +121,17 @@
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
     NSString *name = [self.fighterNameArray objectAtIndex:row];
-    SSBRestClient *client = [[SSBRestClient alloc] init];
     
     // edit was made in the salary column
     if (column == self.salaryColumn) {
         NSString *salary =  anObject;
-        [client updateSalary:salary forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
+        [[[SSBManager sharedManager] restClient] updateSalary:salary forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {
                 [self presentError:error];
             }
             else {
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
-                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
                     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
@@ -142,13 +141,13 @@
     // edit was made in the owner column
     else if (column == self.ownerColumn) {
         NSString *owner =  anObject;
-        [client updateOwner:owner forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
+        [[[SSBManager sharedManager] restClient] updateOwner:owner forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {                
                 [self presentError:error];
             }
             else {
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
-                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
                     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
@@ -158,13 +157,13 @@
     // edit was made in the is restricted column
     else if (column == self.isRestrictedColumn) {
         NSString *restrictedStatus = anObject;
-        [client updateRestrictedStatus:restrictedStatus forFighter:name withBlock:^void(NSError *error) {
+        [[[SSBManager sharedManager] restClient] updateRestrictedStatus:restrictedStatus forFighter:name withBlock:^void(NSError *error) {
             if (error) {
                 [self presentError:error];
             }
             else {
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
-                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
                     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
@@ -174,13 +173,13 @@
     // edit was made in the restricted year column
     else if (column == self.restrictedYearColumn) {
         NSInteger restrictedYear = [anObject intValue];
-        [client updateRestrictedYear:restrictedYear forFighter:name withBlock:^void(NSError *error) {
+        [[[SSBManager sharedManager] restClient] updateRestrictedYear:restrictedYear forFighter:name withBlock:^void(NSError *error) {
             if (error) {
                 [self presentError:error];
             }
             else {
                 [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
-                [client getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
+                [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
                     [self.fighterObjectArray addObject:fighter];
                     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];

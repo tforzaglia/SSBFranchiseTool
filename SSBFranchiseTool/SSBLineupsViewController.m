@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
-#import "SSBConstants.h"
 #import "SSBLineupsViewController.h"
+#import "SSBManager.h"
 #import "SSBRestClient.h"
 
 @interface SSBLineupsViewController ()
@@ -44,7 +44,7 @@
 - (void)awakeFromNib {
     [self.yearSelectionButton removeAllItems];
     NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= SSBNumberOfYears; i++) {
+    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
         NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
         [yearStrings addObject:yearString];
     }
@@ -63,8 +63,7 @@
     [self.tLineupArray removeAllObjects];
     [self.pLineupArray removeAllObjects];
     
-    SSBRestClient *client = [[SSBRestClient alloc] init];
-    [client getLineupsForYear:yearNumber withBlock:^void(NSArray *lineups) {
+    [[[SSBManager sharedManager] restClient] getLineupsForYear:yearNumber withBlock:^void(NSArray *lineups) {
         if (![lineups[0] isEqual:[NSNull null]]) {
             self.aLineupArray = [[lineups[0] componentsSeparatedByString:@","] mutableCopy];
             self.tLineupArray = [[lineups[1] componentsSeparatedByString:@","] mutableCopy];
@@ -90,8 +89,7 @@
     // remove the Year text to get the number to pass to the web service
     NSString *yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
     
-    SSBRestClient *client = [[SSBRestClient alloc] init];
-    [client updateLineup:aLineup forOwner:@"A" andYear:yearNumber withBlock:^void(NSError *error) {
+    [[[SSBManager sharedManager] restClient] updateLineup:aLineup forOwner:@"A" andYear:yearNumber withBlock:^void(NSError *error) {
         if (error) {
             [self presentError:error];
         }
@@ -99,7 +97,7 @@
             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
-    [client updateLineup:tLineup forOwner:@"T" andYear:yearNumber withBlock:^void(NSError *error) {
+    [[[SSBManager sharedManager] restClient] updateLineup:tLineup forOwner:@"T" andYear:yearNumber withBlock:^void(NSError *error) {
         if (error) {
             [self presentError:error];
         }
@@ -107,7 +105,7 @@
             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
-    [client updateLineup:pLineup forOwner:@"P" andYear:yearNumber withBlock:^void(NSError *error) {
+    [[[SSBManager sharedManager] restClient] updateLineup:pLineup forOwner:@"P" andYear:yearNumber withBlock:^void(NSError *error) {
         if (error) {
             [self presentError:error];
         }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
-#import "SSBConstants.h"
+#import "SSBManager.h"
 #import "SSBRestClient.h"
 #import "SSBSalaryCapViewController.h"
 
@@ -39,7 +39,7 @@
     self.tSalaryRemainingArray = [[NSArray alloc] init];
     self.pSalaryRemainingArray = [[NSArray alloc] init];
     
-    for (int i = 1; i <= SSBNumberOfYears; i++) {
+    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
         [self.yearArray addObject:[NSNumber numberWithInt:i]];
     }
     
@@ -48,8 +48,7 @@
 
 - (void)fillSalaryTable {
     // make a call to the rest client , get the salary cap through the year array for each owner
-    SSBRestClient *client = [[SSBRestClient alloc] init];
-    [client getOwnerSalariesWithBlock:^void(NSArray *aSalary, NSArray *tSalary, NSArray *pSalary) {
+    [[[SSBManager sharedManager] restClient] getOwnerSalariesWithBlock:^void(NSArray *aSalary, NSArray *tSalary, NSArray *pSalary) {
         self.aTotalSalaryArray = [aSalary objectAtIndex:0];
         self.aSalaryRemainingArray = [aSalary objectAtIndex:1];
         self.tTotalSalaryArray = [tSalary objectAtIndex:0];
