@@ -64,6 +64,24 @@
     }];
 }
 
+- (IBAction)createNewYear:(id)sender {
+    NSInteger numberOfYears = [[SSBManager sharedManager] numberOfYears];
+    [[SSBManager sharedManager] setNumberOfYears:numberOfYears + 1];
+    [[[SSBManager sharedManager] restClient] createNewYear:numberOfYears + 1 withBlock:^void(NSError *error) {
+        if (error) {
+            [self presentError:error];
+        }
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NewYearCreatedNotification" object:self];
+            
+            NSString *yearString = [NSString stringWithFormat:@"Year %ld", [[SSBManager sharedManager] numberOfYears]];
+            [self.yearSelectionButton addItemWithTitle:yearString];
+        }
+    }];
+    
+    
+}
+
 #pragma mark NSTableViewDataSource Protocol Methods
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv {

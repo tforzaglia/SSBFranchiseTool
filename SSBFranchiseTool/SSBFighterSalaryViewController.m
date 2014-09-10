@@ -28,6 +28,11 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNewYearCreatedNotification:)
+                                                 name:@"NewYearCreatedNotification"
+                                               object:nil];
 
     self.fighterNameArray = [[NSMutableArray alloc] initWithObjects:@"Bowser", @"Captain Falcon", @"Diddy Kong", @"Donkey Kong", @"Falco", @"Fox", @"Ganondorf", @"Ice Climbers", @"Ike", @"Jigglypuff", @"King Dedede", @"Kirby", @"Link" ,
         @"Lucario", @"Lucas", @"Luigi", @"Mario", @"Marth", @"Metaknight", @"Mr Game and Watch", @"Olimar", @"Ness",
@@ -38,16 +43,20 @@
     self.yearNumber = @"1";
     
     self.fighterObjectArray = [[NSMutableArray alloc] init];
-    SSBRestClient *client = [[SSBRestClient alloc] init];
+    [self fillFighterObjectArray];
 
+    return [super initWithNibName:@"SSBFighterSalaryView" bundle:[NSBundle bundleForClass:[self class]]];
+}
+
+- (void)fillFighterObjectArray {
+    [self.fighterObjectArray removeAllObjects];
+    
     // make rest calls for each fighter and get them into separate SSBFighter objects
     for (int i = 0; i < [self.fighterNameArray count]; i++) {
-        [client getFighterInfoByName:[self.fighterNameArray objectAtIndex:i] withBlock:^void(SSBFighter *fighter) {
+        [[[SSBManager sharedManager] restClient] getFighterInfoByName:[self.fighterNameArray objectAtIndex:i] withBlock:^void(SSBFighter *fighter) {
             [self.fighterObjectArray addObject:fighter];
         }];
     }
-
-    return [super initWithNibName:@"SSBFighterSalaryView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
 - (void)awakeFromNib {
@@ -59,6 +68,12 @@
     }
     
     [self.yearSelectionButton addItemsWithTitles:yearStrings];
+}
+
+- (void)receivedNewYearCreatedNotification:(NSNotification *)notification {
+    NSString *yearString = [NSString stringWithFormat:@"Year %ld", [[SSBManager sharedManager] numberOfYears]];
+    [self.yearSelectionButton addItemWithTitle:yearString];
+    [self fillFighterObjectArray];
 }
 
 - (IBAction)loadSalaryInfo:(id)sender {

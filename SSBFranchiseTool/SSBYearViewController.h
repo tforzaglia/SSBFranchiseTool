@@ -17,5 +17,6 @@
 @property (weak) IBOutlet NSTableColumn *ownerColumn;
 
 - (IBAction)loadYearData:(id)sender;
+- (IBAction)createNewYear:(id)sender;
 
 @end

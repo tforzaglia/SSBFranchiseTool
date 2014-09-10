@@ -16,5 +16,6 @@
 @property (nonatomic) NSInteger numberOfYears;
 
 + (id)sharedManager;
++ (void)setNumberOfYears:(NSInteger)numberOfYears;
 
 @end
