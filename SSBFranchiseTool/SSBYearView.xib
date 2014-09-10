@@ -114,6 +114,17 @@
                         <action selector="loadYearData:" target="-2" id="zC5-ut-AUO"/>
                     </connections>
                 </popUpButton>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfy-DN-lIr">
+                    <rect key="frame" x="377" y="652" width="144" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Create New Year" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NO5-7l-8XQ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="createNewYear:" target="-2" id="ker-8y-7jC"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
     </objects>

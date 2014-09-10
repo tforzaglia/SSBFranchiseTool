@@ -26,4 +26,6 @@
 - (void)updateWinningOwner:(NSString *)winningOwner forMatch:(NSInteger)matchNumber andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 - (void)updateLineup:(NSString *)lineup forOwner:(NSString *)owner andYear:(NSString *)year withBlock:(void (^)(NSError *))block;
 
+- (void)createNewYear:(NSInteger)year withBlock:(void (^)(NSError *))block;
+
 @end

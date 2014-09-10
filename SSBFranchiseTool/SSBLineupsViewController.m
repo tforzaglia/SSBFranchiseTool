@@ -38,6 +38,11 @@
     self.tLineupArray = [[NSMutableArray alloc] init];
     self.pLineupArray = [[NSMutableArray alloc] init];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNewYearCreatedNotification:)
+                                                 name:@"NewYearCreatedNotification"
+                                               object:nil];
+    
     return [super initWithNibName:@"SSBLineupsView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
@@ -50,6 +55,11 @@
     }
     
     [self.yearSelectionButton addItemsWithTitles:yearStrings];
+}
+
+- (void)receivedNewYearCreatedNotification:(NSNotification *)notification {
+    NSString *yearString = [NSString stringWithFormat:@"Year %ld", [[SSBManager sharedManager] numberOfYears]];
+    [self.yearSelectionButton addItemWithTitle:yearString];
 }
 
 - (IBAction)loadLineup:(id)sender {

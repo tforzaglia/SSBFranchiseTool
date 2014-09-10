@@ -39,14 +39,14 @@
     self.tSalaryRemainingArray = [[NSArray alloc] init];
     self.pSalaryRemainingArray = [[NSArray alloc] init];
     
-    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
-        [self.yearArray addObject:[NSNumber numberWithInt:i]];
-    }
-    
     return [super initWithNibName:@"SSBSalaryCapView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
 - (void)fillSalaryTable {
+    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
+        [self.yearArray addObject:[NSNumber numberWithInt:i]];
+    }
+    
     // make a call to the rest client , get the salary cap through the year array for each owner
     [[[SSBManager sharedManager] restClient] getOwnerSalariesWithBlock:^void(NSArray *aSalary, NSArray *tSalary, NSArray *pSalary) {
         self.aTotalSalaryArray = [aSalary objectAtIndex:0];

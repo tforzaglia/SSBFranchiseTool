@@ -33,4 +33,8 @@
     return self;
 }
 
++ (void)setNumberOfYears:(NSInteger)numberOfYears {
+    self.numberOfYears = numberOfYears;
+}
+
 @end
