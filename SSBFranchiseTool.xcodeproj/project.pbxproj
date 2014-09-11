@@ -70,6 +70,7 @@
 		493C4C1218AF2C8700601FF1 /* SSBYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBYearViewController.h; sourceTree = "<group>"; };
 		493C4C1318AF2C8700601FF1 /* SSBYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBYearViewController.m; sourceTree = "<group>"; };
 		493C4C1418AF2C8700601FF1 /* SSBYearView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBYearView.xib; sourceTree = "<group>"; };
+		496C284819C12E21007CE2A0 /* SSBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBMacros.h; sourceTree = "<group>"; };
 		499EFCA11894C8CC00CE9979 /* SSBSalaryCapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBSalaryCapViewController.h; sourceTree = "<group>"; };
 		499EFCA21894C8CC00CE9979 /* SSBSalaryCapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBSalaryCapViewController.m; sourceTree = "<group>"; };
 		499EFCA31894C8CC00CE9979 /* SSBSalaryCapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSBSalaryCapView.xib; sourceTree = "<group>"; };
@@ -133,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		496C284719C12E02007CE2A0 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				496C284819C12E21007CE2A0 /* SSBMacros.h */,
+			);
+			name = Macros;
+			sourceTree = "<group>";
+		};
 		49B8AB88188CE2EC00AE0BA2 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +197,7 @@
 			children = (
 				49B8AB88188CE2EC00AE0BA2 /* Clients */,
 				49CEFD6C188227830015F35D /* Document */,
+				496C284719C12E02007CE2A0 /* Macros */,
 				49E9122F19BE940F00CE8BE8 /* Manager */,
 				49E83178189F34D3009F5D03 /* Model */,
 				49CEFD6B188216B50015F35D /* Views */,

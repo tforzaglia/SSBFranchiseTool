@@ -7,6 +7,7 @@
 //
 
 #import "SSBFighterSalaryViewController.h"
+#import "SSBMacros.h"
 #import "SSBManager.h"
 #import "SSBRestClient.h"
 
@@ -51,10 +52,11 @@
 - (void)fillFighterObjectArray {
     [self.fighterObjectArray removeAllObjects];
     
+    SSBWeakSelf weakSelf = self;
     // make rest calls for each fighter and get them into separate SSBFighter objects
     for (int i = 0; i < [self.fighterNameArray count]; i++) {
         [[[SSBManager sharedManager] restClient] getFighterInfoByName:[self.fighterNameArray objectAtIndex:i] withBlock:^void(SSBFighter *fighter) {
-            [self.fighterObjectArray addObject:fighter];
+            [weakSelf.fighterObjectArray addObject:fighter];
         }];
     }
 }
@@ -136,19 +138,20 @@
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
     NSString *name = [self.fighterNameArray objectAtIndex:row];
+    SSBWeakSelf weakSelf = self;
     
     // edit was made in the salary column
     if (column == self.salaryColumn) {
         NSString *salary =  anObject;
         [[[SSBManager sharedManager] restClient] updateSalary:salary forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {
-                [self presentError:error];
+                [weakSelf presentError:error];
             }
             else {
-                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [weakSelf.fighterObjectArray removeObject:[weakSelf searchArrayForFighterByName:name]];
                 [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [self.fighterObjectArray addObject:fighter];
-                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    [weakSelf.fighterObjectArray addObject:fighter];
+                    [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
             }
         }];
@@ -158,13 +161,13 @@
         NSString *owner =  anObject;
         [[[SSBManager sharedManager] restClient] updateOwner:owner forFighter:name andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {                
-                [self presentError:error];
+                [weakSelf presentError:error];
             }
             else {
-                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [weakSelf.fighterObjectArray removeObject:[weakSelf searchArrayForFighterByName:name]];
                 [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [self.fighterObjectArray addObject:fighter];
-                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    [weakSelf.fighterObjectArray addObject:fighter];
+                    [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
             }
         }];
@@ -174,13 +177,13 @@
         NSString *restrictedStatus = anObject;
         [[[SSBManager sharedManager] restClient] updateRestrictedStatus:restrictedStatus forFighter:name withBlock:^void(NSError *error) {
             if (error) {
-                [self presentError:error];
+                [weakSelf presentError:error];
             }
             else {
-                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [weakSelf.fighterObjectArray removeObject:[weakSelf searchArrayForFighterByName:name]];
                 [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [self.fighterObjectArray addObject:fighter];
-                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    [weakSelf.fighterObjectArray addObject:fighter];
+                    [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
             }
         }];
@@ -190,13 +193,13 @@
         NSInteger restrictedYear = [anObject intValue];
         [[[SSBManager sharedManager] restClient] updateRestrictedYear:restrictedYear forFighter:name withBlock:^void(NSError *error) {
             if (error) {
-                [self presentError:error];
+                [weakSelf presentError:error];
             }
             else {
-                [self.fighterObjectArray removeObject:[self searchArrayForFighterByName:name]];
+                [weakSelf.fighterObjectArray removeObject:[weakSelf searchArrayForFighterByName:name]];
                 [[[SSBManager sharedManager] restClient] getFighterInfoByName:name withBlock:^void(SSBFighter *fighter) {
-                    [self.fighterObjectArray addObject:fighter];
-                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    [weakSelf.fighterObjectArray addObject:fighter];
+                    [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
             }
         }];

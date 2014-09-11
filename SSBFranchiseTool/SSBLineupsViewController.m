@@ -7,6 +7,7 @@
 //
 
 #import "SSBLineupsViewController.h"
+#import "SSBMacros.h"
 #import "SSBManager.h"
 #import "SSBRestClient.h"
 
@@ -73,17 +74,18 @@
     [self.tLineupArray removeAllObjects];
     [self.pLineupArray removeAllObjects];
     
+    SSBWeakSelf weakSelf = self;
     [[[SSBManager sharedManager] restClient] getLineupsForYear:yearNumber withBlock:^void(NSArray *lineups) {
         if (![lineups[0] isEqual:[NSNull null]]) {
-            self.aLineupArray = [[lineups[0] componentsSeparatedByString:@","] mutableCopy];
-            self.tLineupArray = [[lineups[1] componentsSeparatedByString:@","] mutableCopy];
-            self.pLineupArray = [[lineups[2] componentsSeparatedByString:@","] mutableCopy];
+            weakSelf.aLineupArray = [[lineups[0] componentsSeparatedByString:@","] mutableCopy];
+            weakSelf.tLineupArray = [[lineups[1] componentsSeparatedByString:@","] mutableCopy];
+            weakSelf.pLineupArray = [[lineups[2] componentsSeparatedByString:@","] mutableCopy];
         
-            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
         else {
-            [self fillLineupArraysWithBlankStrings];
-            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [weakSelf fillLineupArraysWithBlankStrings];
+            [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
 }
@@ -99,28 +101,29 @@
     // remove the Year text to get the number to pass to the web service
     NSString *yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
     
+    SSBWeakSelf weakSelf = self;
     [[[SSBManager sharedManager] restClient] updateLineup:aLineup forOwner:@"A" andYear:yearNumber withBlock:^void(NSError *error) {
         if (error) {
-            [self presentError:error];
+            [weakSelf presentError:error];
         }
         else {
-            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
     [[[SSBManager sharedManager] restClient] updateLineup:tLineup forOwner:@"T" andYear:yearNumber withBlock:^void(NSError *error) {
         if (error) {
-            [self presentError:error];
+            [weakSelf presentError:error];
         }
         else {
-            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
     [[[SSBManager sharedManager] restClient] updateLineup:pLineup forOwner:@"P" andYear:yearNumber withBlock:^void(NSError *error) {
         if (error) {
-            [self presentError:error];
+            [weakSelf presentError:error];
         }
         else {
-            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         }
     }];
 }

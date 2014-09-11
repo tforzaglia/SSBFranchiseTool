@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
+#import "SSBMacros.h"
 #import "SSBManager.h"
 #import "SSBRestClient.h"
 #import "SSBYearViewController.h"
@@ -55,31 +56,31 @@
     // remove the Year text to get the number to pass to the web service
    self.yearNumber = [selectedYear stringByReplacingOccurrencesOfString:@"Year " withString:@""];
     
+    SSBWeakSelf weakSelf = self;
     [[[SSBManager sharedManager] restClient] getMatchResultsForYear:self.yearNumber withBlock:^void(SSBYear *yearObject) {
-        self.matchNumbers = [[yearObject matches] mutableCopy];
-        self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
-        self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
+        weakSelf.matchNumbers = [[yearObject matches] mutableCopy];
+        weakSelf.fighterWinners = [[yearObject fighterWinners] mutableCopy];
+        weakSelf.ownerWinners = [[yearObject ownerWinners] mutableCopy];
         
-        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
 }
 
 - (IBAction)createNewYear:(id)sender {
+    SSBWeakSelf weakSelf = self;
     NSInteger numberOfYears = [[SSBManager sharedManager] numberOfYears];
     [[SSBManager sharedManager] setNumberOfYears:numberOfYears + 1];
     [[[SSBManager sharedManager] restClient] createNewYear:numberOfYears + 1 withBlock:^void(NSError *error) {
         if (error) {
-            [self presentError:error];
+            [weakSelf presentError:error];
         }
         else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"NewYearCreatedNotification" object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NewYearCreatedNotification" object:weakSelf];
             
             NSString *yearString = [NSString stringWithFormat:@"Year %ld", [[SSBManager sharedManager] numberOfYears]];
-            [self.yearSelectionButton addItemWithTitle:yearString];
+            [weakSelf.yearSelectionButton addItemWithTitle:yearString];
         }
     }];
-    
-    
 }
 
 #pragma mark NSTableViewDataSource Protocol Methods
@@ -107,20 +108,22 @@
 }
 
 - (void)tableView:(NSTableView *)tv setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)column row:(NSInteger)row {
+    SSBWeakSelf weakSelf = self;
+    
     // edit was made in the fighter column
     if (column == self.fighterColumn) {
         NSString *fighterName =  anObject;
         [[[SSBManager sharedManager] restClient] updateWinningFIghter:fighterName forMatch:row + 1 andYear:self.yearNumber withBlock:^void(NSError *error) {
             if (error) {
-                [self presentError:error];
+                [weakSelf presentError:error];
             }
             else {
-                [[[SSBManager sharedManager] restClient] getMatchResultsForYear:self.yearNumber withBlock:^void(SSBYear *yearObject) {
-                    self.matchNumbers = [[yearObject matches] mutableCopy];
-                    self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
-                    self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
+                [[[SSBManager sharedManager] restClient] getMatchResultsForYear:weakSelf.yearNumber withBlock:^void(SSBYear *yearObject) {
+                    weakSelf.matchNumbers = [[yearObject matches] mutableCopy];
+                    weakSelf.fighterWinners = [[yearObject fighterWinners] mutableCopy];
+                    weakSelf.ownerWinners = [[yearObject ownerWinners] mutableCopy];
                     
-                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
             }
         }];
@@ -128,17 +131,17 @@
     // edit was made in the owner column
     else if (column == self.ownerColumn) {
         NSString *ownerName =  anObject;
-        [[[SSBManager sharedManager] restClient] updateWinningOwner:ownerName forMatch:row + 1 andYear:self.yearNumber withBlock:^void(NSError *error) {
+        [[[SSBManager sharedManager] restClient] updateWinningOwner:ownerName forMatch:row + 1 andYear:weakSelf.yearNumber withBlock:^void(NSError *error) {
             if (error) {
-                [self presentError:error];
+                [weakSelf presentError:error];
             }
             else {
-                [[[SSBManager sharedManager] restClient] getMatchResultsForYear:self.yearNumber withBlock:^void(SSBYear *yearObject) {
-                    self.matchNumbers = [[yearObject matches] mutableCopy];
-                    self.fighterWinners = [[yearObject fighterWinners] mutableCopy];
-                    self.ownerWinners = [[yearObject ownerWinners] mutableCopy];
+                [[[SSBManager sharedManager] restClient] getMatchResultsForYear:weakSelf.yearNumber withBlock:^void(SSBYear *yearObject) {
+                    weakSelf.matchNumbers = [[yearObject matches] mutableCopy];
+                    weakSelf.fighterWinners = [[yearObject fighterWinners] mutableCopy];
+                    weakSelf.ownerWinners = [[yearObject ownerWinners] mutableCopy];
                     
-                    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                    [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
                 }];
             }
         }];

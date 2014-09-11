@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
+#import "SSBMacros.h"
 #import "SSBManager.h"
 #import "SSBRestClient.h"
 
@@ -26,8 +27,9 @@
     if (self = [super init]) {
         self.restClient = [[SSBRestClient alloc] init];
         
+        SSBWeakSelf weakSelf = self;
         [self.restClient getFighterInfoByName:@"Bowser" withBlock:^void(SSBFighter *fighter) {
-            self.numberOfYears = [fighter.winsThroughTheYears count];
+            weakSelf.numberOfYears = [fighter.winsThroughTheYears count];
         }];
     }
     return self;

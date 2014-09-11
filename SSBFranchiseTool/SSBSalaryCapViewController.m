@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Thomas Forzaglia. All rights reserved.
 //
 
+#import "SSBMacros.h"
 #import "SSBManager.h"
 #import "SSBRestClient.h"
 #import "SSBSalaryCapViewController.h"
@@ -47,16 +48,17 @@
         [self.yearArray addObject:[NSNumber numberWithInt:i]];
     }
     
+    SSBWeakSelf weakSelf = self;
     // make a call to the rest client , get the salary cap through the year array for each owner
     [[[SSBManager sharedManager] restClient] getOwnerSalariesWithBlock:^void(NSArray *aSalary, NSArray *tSalary, NSArray *pSalary) {
-        self.aTotalSalaryArray = [aSalary objectAtIndex:0];
-        self.aSalaryRemainingArray = [aSalary objectAtIndex:1];
-        self.tTotalSalaryArray = [tSalary objectAtIndex:0];
-        self.tSalaryRemainingArray = [tSalary objectAtIndex:1];
-        self.pTotalSalaryArray = [pSalary objectAtIndex:0];
-        self.pSalaryRemainingArray = [pSalary objectAtIndex:1];
+        weakSelf.aTotalSalaryArray = [aSalary objectAtIndex:0];
+        weakSelf.aSalaryRemainingArray = [aSalary objectAtIndex:1];
+        weakSelf.tTotalSalaryArray = [tSalary objectAtIndex:0];
+        weakSelf.tSalaryRemainingArray = [tSalary objectAtIndex:1];
+        weakSelf.pTotalSalaryArray = [pSalary objectAtIndex:0];
+        weakSelf.pSalaryRemainingArray = [pSalary objectAtIndex:1];
         
-        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+        [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }];
 }
 
