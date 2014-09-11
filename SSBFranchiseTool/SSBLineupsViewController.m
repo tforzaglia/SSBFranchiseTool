@@ -27,6 +27,8 @@
 
 @implementation SSBLineupsViewController
 
+#pragma mark Initialization Methods
+
 - (id)init {
     return [super initWithNibName:@"SSBLineupsView" bundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -62,6 +64,8 @@
     NSString *yearString = [NSString stringWithFormat:@"Year %ld", [[SSBManager sharedManager] numberOfYears]];
     [self.yearSelectionButton addItemWithTitle:yearString];
 }
+
+#pragma mark IBAction Methods
 
 - (IBAction)loadLineup:(id)sender {
     // get the selected year from the pop up button
@@ -127,6 +131,8 @@
         }
     }];
 }
+
+#pragma mark Helper Methods
 
 - (void)fillLineupArraysWithBlankStrings {
     for (int i = 0; i < 11; i++) {

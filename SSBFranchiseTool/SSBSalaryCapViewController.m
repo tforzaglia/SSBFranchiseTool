@@ -25,6 +25,8 @@
 
 @implementation SSBSalaryCapViewController
 
+#pragma mark Initialization Methods
+
 - (id)init {
     return [super initWithNibName:@"SSBSalaryCapView" bundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -42,6 +44,8 @@
     
     return [super initWithNibName:@"SSBSalaryCapView" bundle:[NSBundle bundleForClass:[self class]]];
 }
+
+#pragma mark Helper Methods
 
 - (void)fillSalaryTable {
     for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {

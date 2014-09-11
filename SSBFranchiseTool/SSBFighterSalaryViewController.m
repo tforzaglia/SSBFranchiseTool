@@ -23,6 +23,8 @@
 
 @implementation SSBFighterSalaryViewController
 
+#pragma mark Initialization Methods
+
 - (id)init {
     return [super initWithNibName:@"SSBFighterSalaryView" bundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -49,6 +51,19 @@
     return [super initWithNibName:@"SSBFighterSalaryView" bundle:[NSBundle bundleForClass:[self class]]];
 }
 
+- (void)awakeFromNib {
+    [self.yearSelectionButton removeAllItems];
+    NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
+    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
+        NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
+        [yearStrings addObject:yearString];
+    }
+    
+    [self.yearSelectionButton addItemsWithTitles:yearStrings];
+}
+
+#pragma mark Helper Methods
+
 - (void)fillFighterObjectArray {
     [self.fighterObjectArray removeAllObjects];
     
@@ -61,22 +76,22 @@
     }
 }
 
-- (void)awakeFromNib {
-    [self.yearSelectionButton removeAllItems];
-    NSMutableArray *yearStrings = [[NSMutableArray alloc] init];
-    for (int i = 1; i <= [[SSBManager sharedManager] numberOfYears]; i++) {
-        NSString *yearString = [NSString stringWithFormat:@"Year %d", i];
-        [yearStrings addObject:yearString];
-    }
-    
-    [self.yearSelectionButton addItemsWithTitles:yearStrings];
-}
-
 - (void)receivedNewYearCreatedNotification:(NSNotification *)notification {
     NSString *yearString = [NSString stringWithFormat:@"Year %ld", [[SSBManager sharedManager] numberOfYears]];
     [self.yearSelectionButton addItemWithTitle:yearString];
     [self fillFighterObjectArray];
 }
+
+- (SSBFighter *)searchArrayForFighterByName:(NSString *)name {
+    for (SSBFighter *fighter in self.fighterObjectArray) {
+        if ([name isEqualToString:[fighter name]]) {
+            return fighter;
+        }
+    }
+    return nil;
+}
+
+#pragma mark IBAction Methods
 
 - (IBAction)loadSalaryInfo:(id)sender {
     // get the selected year from the pop up button
@@ -87,17 +102,6 @@
     
     // fill the table with different info based on the year
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
-}
-
-
-- (SSBFighter *)searchArrayForFighterByName:(NSString *)name {
-    for (SSBFighter *fighter in self.fighterObjectArray) {
-        if ([name isEqualToString:[fighter name]]) {
-            return fighter;
-        }
-    }
-    
-    return nil;
 }
 
 #pragma mark NSTableViewDataSource Protocol Methods

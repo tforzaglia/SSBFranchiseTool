@@ -22,6 +22,8 @@
 
 @implementation SSBYearViewController
 
+#pragma mark Initialization Methods
+
 - (id)init {
     return [super initWithNibName:@"SSBYearView" bundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -48,6 +50,8 @@
     
     [self.yearSelectionButton addItemsWithTitles:yearStrings];
 }
+
+#pragma mark IBAction methods
 
 - (IBAction)loadYearData:(id)sender {
     // get the selected year from the pop up button
@@ -82,6 +86,12 @@
         }
     }];
 }
+
+#pragma mark Helper Methods
+
+//have a method that takes  2 params that represent a range to search in - start match and end match (ex 1 and 11)
+// then it will tally the number times each owner (A, T, P) appears in that range
+// it will then determine who gets postive, negative, no change in salary
 
 #pragma mark NSTableViewDataSource Protocol Methods
 
@@ -149,10 +159,5 @@
     
     [tv reloadData];
 }
-
-//have a method that takes  2 params that represent a range to search in - start match and end match (ex 1 and 11)
-    // then it will tally the number times each owner (A, T, P) appears in that range
-    // it will then determine who gets postive, negative, no change in salary 
-
 
 @end

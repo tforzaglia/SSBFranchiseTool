@@ -17,6 +17,8 @@
 
 @implementation SSBRulesViewController
 
+#pragma mark Initialization Methods
+
 - (id)init {
 
     return [super initWithNibName:@"SSBRulesView" bundle:[NSBundle bundleForClass:[self class]]];
